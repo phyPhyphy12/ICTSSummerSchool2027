@@ -1,80 +1,53 @@
-# Summer School for Women in Physics (SSWP) — ICTS-TIFR Bengaluru
+# Summer School for Women in Physics (SSWP 2027) — ICTS-TIFR Bengaluru
 
-A high-performance, immersive scrollytelling web experience built for the **Summer School for Women in Physics (SSWP)** hosted annually at the **International Centre for Theoretical Sciences (ICTS-TIFR)** in Bengaluru, India.
+**“HER CONTRIBUTIONS TO PHYSICS. YOUR FUTURE IN SCIENCE.”**
+
+The official experiential website for the **Summer School for Women in Physics (SSWP 2027)** hosted at the **International Centre for Theoretical Sciences (ICTS-TIFR)** in Bengaluru, India.
 
 ---
 
-## 🌌 Core Mechanics & Features
+## 🏛️ Editorial & Exhibition Design
+Designed as a museum-quality science exhibition celebrating pioneering women physicists while clearly presenting the academic programme for undergraduate students:
 
-### 1. Interactive Canvas Physics Simulation
-Driven linearly over a `500vh` GSAP ScrollTrigger layout:
-- **Phase 1: The Lab Gateway & Chaos to Order (0% - 25% Scroll)**
-  - 3D perspective double-door vacuum portal that slides open to the margins.
-  - High-entropy thermal motion of 300+ vector particles cooled and aligned by an implicit magnetic spin field into the ordered lattice geometry of **"SSWP"**.
-- **Phase 2: Holographic Core Corridor & Spacetime Curvature (26% - 50% Scroll)**
-  - Dynamic 3D coordinate spacetime lattice.
-  - Deep gravitational mass well singularity warping grid geodesics according to relativistic curvature equations.
-- **Phase 3: Wave-Particle Duality & Experiential Matrix (51% - 100% Scroll)**
-  - Coherent quantum wave packet passing through Young's double-slit apertures.
-  - Live computed cosine-squared interference intensity profile (\(I = I_0 \cos^2(\beta) \mathrm{sinc}^2(\alpha)\)) rendered behind the curriculum matrix.
-
-### 2. Hardcoded Administrative Parameters
-- **Eligibility:** Exclusively open to women who have just completed their 1st Year of B.Sc. (Physics) or Integrated B.Sc.-M.Sc. courses.
-- **Selection Process:** 100% remote, home-based online MCQ selection exam evaluating basic undergraduate physics conceptual clarity.
-- **Fellowships:** Fully funded residency at ICTS. Zero registration fees. Covers full round-trip travel reimbursements, campus housing, and daily meals.
-- **Critical Advisory Note (Prominently Highlighted):** Urgently requests that selected students bring a personal or borrowed laptop for experimental data analysis and Python simulation routines.
-
-### 3. Experiential Component Matrix & Dropzones
-Interactive expandable cards that scale dynamically on hover:
-- 🌅 **Morning Broad Lectures:** Broad foundational talks by eminent faculty with open Q&A.
-- 🔬 **Afternoon Experimental Cycles (2:30 PM - 5:30 PM):** Small agile cohorts of 5 tackling flagship experiments (Faraday waves, Van de Graaff breakdown, coupled oscillators) every 48 hours.
-- 🌆 **Evening Symposiums & Mentorship:** Problem sets and candid career discussions with ICTS Postdocs and PhD scholars.
-- **Archival Dropzones:** Drag-and-drop media upload simulator with distinct upload state icons, auto-indexing, and historical photo galleries from 2023–2026.
+- **Official ICTS Identity & Palette:** Sampled directly from the official ICTS logo:
+  - Primary Brand Accent: `ICTS Crimson / Terracotta` (`#9a393a`)
+  - Secondary Brand Accent: `ICTS Solar Amber` (`#ef7f1a`)
+  - Exhibition Backdrop: Restrained slate-graphite neutrals (`#0b0f17`, `#131924`)
+- **Scientist Exhibition Journey:**
+  - **Strict Representation:** Exactly **50% Indian Women Physicists** (6 Indian + 6 International Pioneers).
+  - Authentic portraits from verified archives (Indian Academy of Sciences, Smithsonian, Nobel Foundation, CERN, Carnegie Institution).
+  - Custom, scientifically grounded visual representations for each scientist's research (cosmic ray emulsion tracks, Noether continuous symmetry, collider hadronic jets, parity-violating beta decay, multipartite quantum entanglement, radio pulsar sweeps, nonlinear plasma solitons, flat galactic rotation curves, hydrodynamic shear instabilities, nuclear fission droplet scission, colloidal brownian arrest, and radioactive magnetic deflection).
+  - Clear scientific illustration / conceptual visualization labels with authoritative source links.
+- **Accurate Programme Parameters:**
+  - **Eligibility:** Open to women students who have completed the first year of a B.Sc. Physics programme or an Integrated B.Sc.–M.Sc. programme *(Subject to confirmation by organisers)*.
+  - **Selection:** Based on an online, MCQ-based test evaluating basic conceptual physics clarity.
+  - **Support & Travel:** Provided by ICTS to selected students as per applicable ICTS norms, directly linking to the official ICTS Travel Norms PDF.
+  - **Programme Organisers:** Full listing of all 11 faculty and institutional affiliations.
+  - **Application Status:** Polished "Coming soon" dialog communicating that 2027 dates and registration will open soon.
 
 ---
 
 ## 🛠️ Tech Stack
 - **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS with custom neon quantum palette (`#020617` midnight slate, `#22d3ee` quantum cyan, `#a855f7` amethyst, `#f59e0b` cosmic amber)
-- **Animation & Scrollytelling:** GSAP & ScrollTrigger
-- **Simulation Layer:** HTML5 Canvas API with 60 FPS `requestAnimationFrame` loop
+- **Styling:** Tailwind CSS with official ICTS tokens
+- **Rendering:** HTML5 Canvas API with responsive 60 FPS animation loops and `prefers-reduced-motion` accessibility support
 - **Icons:** Lucide React
-- **Static Export:** Configured for GitHub Pages (`output: 'export'`)
+- **Static Export & CI/CD:** Configured for GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Development & Deployment
 
-1. Install dependencies:
 ```bash
+# 1. Install dependencies
 npm install
-```
 
-2. Start development server:
-```bash
+# 2. Run local development server
 npm run dev
-```
-Open `http://localhost:3000` in your browser.
 
-3. Static Production Export:
-```bash
+# 3. Static production build
 npm run build
 ```
-Static production output is generated into the `out/` directory.
 
----
-
-## 🌐 Deploying to GitHub Pages
-
-1. Push this repository to GitHub:
-```bash
-git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPO>.git
-git add .
-git commit -m "Initial commit: SSWP ICTS Portal"
-git push -u origin main
-```
-
-2. In your GitHub repository:
-   - Navigate to **Settings** > **Pages**.
-   - Under **Build and deployment** > **Source**, choose **GitHub Actions**.
-   - The `.github/workflows/deploy.yml` workflow will automatically build and publish the site!
+Production site is hosted live on GitHub Pages:
+**[https://phyphyphy12.github.io/ICTSSummerSchool2027/](https://phyphyphy12.github.io/ICTSSummerSchool2027/)**

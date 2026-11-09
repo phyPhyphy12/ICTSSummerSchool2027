@@ -1,0 +1,134 @@
+ANTIGRAVITY ANIMATION & INTERACTION BRIEF — SSWP 2027
+Use together with “WebsiteStructure.txt”.
+Starting point: modify the existing website at https://phyphyphy12.github.io/ICTSSummerSchool2027/
+
+ROLE
+Act as a senior creative frontend engineer experienced in GSAP ScrollTrigger, Canvas / WebGL, Three.js and accessible interactive storytelling.
+
+NON-NEGOTIABLE CONTEXT
+This is the real Summer School for Women in Physics hosted by ICTS-TIFR, Bengaluru. The website must celebrate real women physicists and their research while accurately presenting the actual programme. It is not a fictional ICTS simulation, a virtual laboratory tour, or a science-fiction game.
+
+START FROM THE EXISTING IMPLEMENTATION
+1. Inspect the existing source code and deployed website before changing anything.
+2. Modify the existing implementation in place. Preserve the current framework, deployment workflow, and useful components unless there is a clear reason to change them.
+3. Remove the existing fictional phases, simulated lab gateway, holographic corridor, telemetry, status HUD, fake FPS readout, invented facility imagery, and media dropzones.
+4. Do not create a completely separate replacement site.
+
+ANIMATION CONCEPT
+Create an editorial “Women in Physics” visual journey. Scrolling should reveal a sequence of real women physicists, with each scientist's portrait and name paired with a concise research label and a custom visual representing her research.
+
+The 3D / Canvas layer should support the content rather than compete with it. It should feel like a carefully art-directed science exhibition, not a generic AI sci-fi effect.
+
+SCROLL EXPERIENCE — PROPOSED STORYBOARD
+
+OPENING / HERO
+- Begin with a restrained, elegant visual motif: a field of points, a fine line, a wave, or a carefully composed scientific form.
+- Let the visual gently resolve into the title “Summer School for Women in Physics 2027”.
+- The first screen should make the programme identity and purpose clear immediately.
+- Do not make visitors pass through doors, enter a fictional building, or navigate a simulated ICTS facility.
+- No fake telemetry, FPS counter, loading diagnostics, phase readouts, or system status labels.
+
+SCENE 1 — A LINE THROUGH THE HISTORY OF PHYSICS
+- Introduce a clean timeline / visual thread connecting women scientists across eras.
+- The timeline can move vertically or horizontally as the visitor scrolls.
+- Each stop should reveal the scientist's authentic portrait, name, research area / contribution, and one visual representing her research.
+- Keep explanatory text brief.
+- At least 50% of the featured scientists must be Indian women. The content data should make this ratio easy to count and validate.
+- Avoid turning this into a dense list of biographies.
+
+SCENE 2 — SCIENTIST-SPECIFIC VISUALS
+Create a distinct visual treatment for each featured scientist based on the actual research, not one generic particle animation repeated for everyone.
+
+Examples of possible visual directions (only use for the relevant scientist and only after checking scientific accuracy):
+- Bibha Chowdhuri: a restrained cosmic-ray particle shower / particle tracks in a detector medium.
+- Aditi Sen De: an abstract but scientifically responsible representation of a quantum state / entanglement.
+- Rohini Godbole: a particle-physics-inspired visualization, such as a Higgs / particle-interaction motif, only if accurately tied to her work.
+- Bimla Buti: plasma dynamics / magnetized plasma field lines.
+- Ranjini Bandyopadhyay: soft condensed matter, colloidal motion, complex-fluid flow, or rheology.
+- Rama Govindarajan: fluid dynamics, vortices, instabilities, or geophysical flow.
+- Emmy Noether: symmetry transformations / conserved quantities, shown as an abstract mathematical visual.
+- Chien-Shiung Wu: a careful visual of the cobalt-60 parity-violation experiment.
+- Jocelyn Bell Burnell: a rotating pulsar and its radio pulses.
+- Lise Meitner: a conceptual nuclear-fission illustration.
+- Vera Rubin: galaxy rotation curves / stars orbiting in a galaxy, with a scientifically accurate explanatory cue.
+- Marie Curie: a restrained visual related to radioactivity / radiation measurement, not a fictional laboratory scene.
+
+These are visual concepts, not a requirement to include every person. The final scientist roster and the research wording must be verified in the master brief. Do not imply that an illustrative rendering is an archival image or actual experimental data.
+
+SCENE TRANSITIONS
+- Use one visual language to connect the scenes: a line, a wave, a subtle particle trail, a rotating geometric form, or another restrained motif.
+- Transition from one research visual to the next with purposeful motion and clean composition.
+- Keep the scientist's portrait and name readable throughout the relevant scene.
+- Avoid excessive zooms, parallax on every element, constant particle storms, or motion that makes the text hard to read.
+- Use scroll progress to drive animation smoothly, but do not hijack scrolling.
+- The visitor must be able to read the full content without interacting with the animation.
+
+SCENE 3 — FROM THEIR WORK TO THE STUDENT'S FUTURE
+- After the scientist journey, gradually simplify the visual into an open, forward-looking composition.
+- Display a short closing thought such as “What questions will you ask?”
+- Transition naturally into the practical programme information and application call-to-action.
+- Do not suggest that the student is entering a fictional ICTS laboratory or that a specific research placement is guaranteed.
+
+TECHNICAL IMPLEMENTATION
+- Prefer the existing framework and rendering architecture. Do not force a migration.
+- Use GSAP ScrollTrigger for scroll-linked animation if it is already present or can be integrated cleanly.
+- Use Canvas / WebGL / Three.js only where the result materially benefits from it.
+- Keep the DOM text and controls separate from the canvas so content remains accessible and selectable.
+- Use a single coordinated animation timeline or scene controller rather than multiple competing animation loops.
+- Use requestAnimationFrame or GSAP's ticker appropriately; avoid duplicate render loops.
+- Recalculate dimensions on resize and orientation changes.
+- Use device-pixel-ratio caps and quality scaling for lower-powered devices.
+- Lazy-load scene assets and destroy / dispose of unused WebGL resources.
+- Avoid expensive real-time simulations when a precomputed or lightweight representation gives the same storytelling value.
+- Provide a static fallback image / CSS composition if WebGL is unavailable.
+- Respect `prefers-reduced-motion`. In reduced-motion mode, present the scenes as a static or gently transitioning editorial sequence.
+- On mobile, simplify or replace complex 3D scenes rather than shrinking an unusable desktop composition.
+- Do not use scroll-jacking. Normal browser scrolling must remain natural.
+
+VISUAL STYLE
+- Extract the primary accent colour from the actual ICTS logo asset used by the website or an official ICTS logo source.
+- Do not guess the logo colour and do not use the old generic neon cyan / purple / amber palette unless those colours genuinely appear in the ICTS identity.
+- Keep the official ICTS logo intact.
+- Use a restrained background and typography palette derived from the logo colour and accessible neutrals.
+- Prioritize editorial typography, generous negative space, clear hierarchy, and carefully composed visuals.
+- No generic AI gradients, excessive glows, fake holographic interfaces, decorative equations, random stars, fake data readouts, or meaningless labels.
+- Do not generate portraits of real scientists. Use verified, rights-cleared photographs supplied by reliable sources.
+- Custom scientific visuals must be accurate and labelled as conceptual illustrations where appropriate.
+
+CONTENT AND INTERACTION HOOKS
+- Scientist content should come from a data structure (name, country / Indian scientist flag, research label, portrait source, image credit, source links, visual scene identifier).
+- Validate before rendering that Indian women scientists make up at least 50% of the final featured scientist list.
+- The animation should not hardcode unverified research claims into shader labels or graphics.
+- Organiser section, eligibility, selection, support / accommodation, typical-day content, and application status are normal accessible website sections, not part of a fictional simulation.
+- Keep the laptop note in a quiet FAQ / practical information section only.
+- Application button click must open a small “Coming soon” dialog/message. Do not submit or redirect to a previous year's form.
+- Support / accommodation information must link to the verified official ICTS norms PDF once the correct PDF is available. Never fabricate the link.
+- Do not add galleries, photo-dump sections, archived event photos, media dropzones, or photo upload overlays.
+
+PERFORMANCE AND ACCESSIBILITY QA
+Test:
+1. Desktop wide viewport.
+2. Standard laptop viewport.
+3. Tablet.
+4. Mobile portrait and landscape.
+5. Reduced-motion preference.
+6. WebGL unavailable / context lost.
+7. Keyboard-only navigation.
+8. Screen-reader reading order.
+9. Slow network / lazy-loaded imagery.
+10. Scroll quickly in both directions.
+11. Application “Coming soon” dialog open / close / keyboard behaviour.
+12. Scientist timeline content remains readable with animation disabled.
+
+FINAL ACCEPTANCE CHECKLIST
+- Existing website was modified in place, not replaced with a generic template.
+- No ICTS Simulation HUD, Portal to Physics, Lab Gateway, Holographic Core Corridor, Experiential Matrix, fake telemetry, fake FPS, or fictional facility tour remains.
+- Each scientist has a real portrait, name, concise research label, and a research-specific visual, with image/source credits as appropriate.
+- At least 50% of featured scientists are Indian women.
+- No AI-generated portraits of real scientists.
+- No visual is falsely presented as real experimental data or an actual ICTS facility.
+- All motion is purposeful, restrained, responsive, and accessible.
+- Programme information remains readable without WebGL or animation.
+- No old photo dump, media dropzone, or unapproved student/event photo remains.
+- Application click shows “Coming soon”.
+- The official ICTS norms PDF link is real and verified, or clearly flagged as a required asset before launch.

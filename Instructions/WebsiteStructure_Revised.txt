@@ -1,0 +1,226 @@
+ANTIGRAVITY MASTER BRIEF — SSWP 2027 WEBSITE REDESIGN
+Version: Revised brief
+Starting point: https://phyphyphy12.github.io/ICTSSummerSchool2027/
+
+ROLE
+Act as a senior creative frontend engineer and product designer. You are working on the existing Summer School for Women in Physics (SSWP) 2027 website for ICTS-TIFR, Bengaluru.
+
+PRIMARY INSTRUCTION — MODIFY THE EXISTING WEBSITE
+Do NOT start a new project or replace the existing website with an unrelated template.
+1. First inspect the existing repository, source code, assets, routes, dependencies, and the currently deployed website.
+2. Treat the existing website as the starting point. Preserve useful working code, responsive behaviour, existing content that remains accurate, and the established deployment setup. And create a new github repo or branch as convenient for this final version.
+3. Refactor and redesign the existing implementation in place. Do not discard the current project structure or change frameworks unless there is a clear technical reason.
+4. Remove the fictional “ICTS Simulation HUD”, “Portal to Physics” facility narrative, “Lab Gateway”, “Holographic Core Corridor”, “Experiential Matrix”, invented telemetry, fake status indicators, and other simulation/game language.
+5. Do not claim that ICTS has particular laboratories, instruments, equipment, facilities, experiments, mentorship ratios, or programme arrangements unless those details are explicitly confirmed for this year's school.
+6. Do not invent dates, deadlines, application links, funding guarantees, accommodation details, speakers, experiments, or programme commitments.
+
+CORE CREATIVE DIRECTION
+Create a distinctive, editorial-quality, immersive website based on:
+“HER CONTRIBUTIONS TO PHYSICS. YOUR FUTURE IN SCIENCE.”
+The website should celebrate women physicists and their research, with a meaningful emphasis on Indian women scientists. Use a restrained, sophisticated visual language and a carefully choreographed scroll experience. The result should feel like a thoughtfully art-directed science exhibition / editorial feature, not a generic AI-generated sci-fi website.
+
+The science-history experience is intended to inspire undergraduate women students to consider careers in physics. Do not turn the site into a physics textbook. For each featured scientist, prioritize:
+- Her name.
+- A real, verified portrait.
+- Her research area / contribution in a concise phrase or sentence.
+- One beautiful, scientifically grounded visual that represents her research.
+Keep explanatory text short. The visual should carry much of the storytelling.
+
+SCIENTIST SELECTION — STRICT REPRESENTATION REQUIREMENT
+At least 50% of all scientists featured in the main “Women in Physics” journey/timeline must be Indian women scientists. Aim for exactly half or more; count the final published entries before delivery. Do not count organisers as featured scientists unless they are deliberately included in the scientist journey.
+
+A possible initial pool to research and verify:
+Indian women:
+- Bibha Chowdhuri — cosmic rays / particle physics.
+- Aditi Sen De — quantum information and quantum entanglement.
+- Rohini Godbole — particle physics / particle phenomenology.
+- Bimla Buti — plasma physics.
+- Ranjini Bandyopadhyay — experimental soft condensed matter physics.
+- Rama Govindarajan — fluid dynamics.
+International women:
+- Emmy Noether — mathematical foundations and symmetry in physics.
+- Chien-Shiung Wu — experimental nuclear physics and the parity-violation experiment.
+- Jocelyn Bell Burnell — discovery of the first radio pulsars as a graduate student.
+- Lise Meitner — theoretical explanation of nuclear fission with Otto Frisch.
+- Vera Rubin — observational evidence for dark matter through galaxy rotation studies.
+- Marie Curie — research on radioactivity.
+
+This is a research shortlist, not permission to publish unverified claims. Verify each person's research and the wording of her contribution against reputable institutional, academic, museum, or scientific-history sources. Do not imply that a person single-handedly made a discovery when the work was collaborative or the historical record is more nuanced. Include a balanced mix of historical pioneers and contemporary researchers where appropriate.
+
+For the final published set:
+- Ensure at least 50% are Indian women scientists.
+- Keep the same visual and editorial treatment for Indian and international scientists.
+- Show the scientist's name, real portrait, research area/contribution, and a visual representation of the research.
+- Keep text concise; do not add long scientific explanations.
+- Provide unobtrusive source credits / “Read more” links where practical.
+- Do not invent quotations, personal stories, awards, dates, or biographical details.
+
+PORTRAITS, SCIENTIFIC VISUALS AND IMAGE INTEGRITY
+- Use authentic photographs/portraits from reliable sources, preferably official institutional profiles, university pages, scientific societies, archives, or properly licensed repositories.
+- Check image rights/licensing and provide attribution where required. Do not assume that an image is free to reuse just because it is online.
+- Never generate AI portraits of real scientists. Never use an AI-generated image that could be mistaken for an actual scientist, historical photograph, laboratory, experiment, or research facility.
+- Scientific visuals may be custom 2D/3D illustrations or animations, but they must accurately and honestly represent the relevant research idea.
+- Label conceptual or illustrative visuals as “Conceptual visualization” or “Scientific illustration” where needed. Do not present them as actual experimental images or archival evidence.
+- Do not use generic stock “scientist in lab” imagery, fictional ICTS facilities, invented equipment, or fake photographs of students.
+- If a verified portrait or usable research visual cannot be found, omit that scientist or use a clearly labelled typographic treatment rather than fabricating imagery.
+
+BRAND AND COLOUR — MUST MATCH THE ICTS LOGO
+- Inspect the actual ICTS logo asset already present in the repository or obtain the official ICTS logo from an authoritative ICTS source.
+- Sample the logo's actual primary colour(s) and build the site's colour palette from those values. The main accent colour must match the ICTS logo.
+- Do not guess the brand colour and do not substitute a generic neon cyan/purple palette.
+- Do not sample the TIFR logo as a substitute for the ICTS logo.
+- Preserve the official logo artwork and its proportions. Do not recolour, distort, redraw, or add effects to the logo.
+- Use the logo-derived colour consistently for links, buttons, timeline markers, focus states, and selected highlights. Use restrained neutral backgrounds and accessible contrast.
+- Document the extracted colour values in CSS variables / design tokens so the palette is consistent.
+
+VISUAL DESIGN / “NOT AI SLOP”
+- Aim for a polished editorial / museum-exhibition design: strong typography, deliberate whitespace, excellent composition, restrained motion, and a clear information hierarchy.
+- Avoid generic AI website patterns: excessive glowing gradients, random floating particles, fake glassmorphism dashboards, holographic panels, decorative equations with no context, meaningless data readouts, generic space backgrounds, excessive rounded cards, and overuse of neon.
+- Avoid fake scientific UI labels, fake telemetry, fake performance metrics, fake “simulation active” indicators, and invented system messages.
+- Use animation only when it supports the scientist's story or a real physics idea.
+- Prefer a few exceptional transitions over constant motion.
+- Make it feel credible for an academic research institute while remaining exciting and welcoming to undergraduate students.
+- Use clear, natural language. Avoid inflated marketing copy and claims such as “world-class Nobel laureates under one roof” unless specifically verified and relevant.
+
+SITE STRUCTURE AND CONTENT
+Build a clear, navigable site with these sections. The immersive scientist journey may be the visual centrepiece, but practical programme information must remain easy to find.
+
+A. HEADER / NAVIGATION
+- Use a clean, responsive header.
+- Include the SSWP 2027 identity and official ICTS logo.
+- Navigation anchors: About the Programme, Women in Physics / Discoveries, Eligibility & Selection, Support & Accommodation, A Typical Day, Organisers.
+- Include an Apply / Application button.
+- Do not use sticky HUDs, telemetry, phase indicators, or fictional navigation labels.
+
+B. HERO
+- Main title: “Summer School for Women in Physics 2027”.
+- A short, inspiring line about exploring physics and considering a future in science.
+- Use a restrained visual that transitions naturally into the women-in-physics journey.
+- Do not imply that the visitor is entering a virtual ICTS building or laboratory.
+- Dates are not final. Do not invent or display dates. If needed, state “Dates to be announced”.
+- The application action must clearly communicate that applications are not open yet.
+
+C. WOMEN IN PHYSICS — THE MAIN IMMERSIVE JOURNEY
+- Create a chronological or thematic scroll journey featuring selected women physicists and their research.
+- Feature at least 50% Indian women scientists.
+- Each scene should include the scientist's name, authentic portrait, concise research area/contribution, and a visual representation of her research.
+- Keep the science explanation brief. The objective is recognition and inspiration, not a detailed lecture.
+- Use a coherent visual transition between scenes; do not make each scientist a disconnected generic card.
+- Consider a horizontal/vertical timeline, pinned scroll scenes, or a continuous visual motif.
+- Ensure the section is usable on mobile and accessible without scroll animation.
+
+D. ABOUT THE PROGRAMME
+Explain that the Summer School for Women in Physics is designed to encourage undergraduate women to consider physics as a career and to experience the excitement and interconnectedness of physics through lectures, simple experiments or demonstrations, open-ended discussion, and problem-solving.
+Use concise, welcoming language. Do not overstate the programme or invent specific outcomes.
+
+E. ELIGIBILITY
+Use this current website eligibility wording as the working content, and flag it for confirmation by the organisers before publication:
+“The school is open to women students who have completed the first year of a B.Sc. Physics programme or an Integrated B.Sc.–M.Sc. programme.”
+Do not broaden or narrow this eligibility without organiser confirmation.
+
+F. SELECTION PROCESS
+Use only this description:
+“Selection will be based on an online, MCQ-based test consisting of basic conceptual physics questions.”
+Do not publish an exam syllabus, topic list, chapter list, sample syllabus, or claims about advanced undergraduate content. Do not call it a “100% remote” exam unless reconfirmed. Do not invent duration, number of questions, marking scheme, dates, or platform.
+
+G. ACCOMMODATION, TRAVEL AND OTHER SUPPORT
+Use careful wording:
+“Accommodation, travel and other support will be provided by ICTS to selected students, as per applicable ICTS norms.”
+Do not say “100% fellowship”, “fully funded”, “full travel reimbursement”, “all meals”, or promise any specific amount / category of expense unless confirmed in the official norms for this edition.
+Make the support information clickable. Clicking it must open the official PDF containing the applicable ICTS norms.
+Important:
+- First search the existing repository and available official ICTS resources for the correct PDF.
+- Use the actual official PDF URL or local PDF asset only after verifying it.
+- Do not invent a PDF filename, path, URL, or document.
+- If the correct PDF is not available, create a clearly marked temporary link target/configuration placeholder and report that the official PDF must be supplied before launch. Do not link to an unrelated travel reimbursement form or an old programme document as a substitute.
+- The PDF should open in a new tab or accessible document viewer. PDF link: https://drive.google.com/file/d/1KLarM5ieFDLeiLjAOtdHKbyrk-3efzw9/view?usp=sharing
+
+H. TYPICAL DAY
+Create three simple sections/cards with no exact clock times:
+1. Morning — Lectures by eminent professors.
+2. Afternoon — Experimental sessions.
+3. Evening — Discussions and problem-solving sessions.
+Do not specify experiment names, equipment, group sizes, faculty names, session timings, or promised formats unless confirmed for 2027.
+Keep the descriptions concise and welcoming.
+
+I. LAPTOP / WHAT TO BRING
+Mention the laptop information quietly in a normal FAQ or “Practical information / What to bring” area, not as a warning, critical advisory, mandatory notice, hero banner, pop-up, or highlighted alert.
+Use neutral wording such as:
+“Students are encouraged to bring a laptop if they have access to one. A personal or borrowed laptop may be used.”
+Do not describe it as mandatory or essential unless organisers explicitly confirm that requirement.
+
+J. ORGANISERS
+Create a clean section titled “Programme Organisers”.
+Show names and institutional affiliations only. Do not display email addresses, phone numbers, personal contact links, or contact forms for individual organisers.
+Use the following 2027 organiser list supplied by the programme team. Verify spelling and affiliations against current institutional pages before publishing; where an affiliation is unclear, retain the institution indicated below and flag it for confirmation rather than guessing.
+
+1. Rajaram Nityananda — ICTS-TIFR, Bengaluru
+2. Ranjini Bandyopadhyay — Raman Research Institute (RRI), Bengaluru
+3. Mahua Ghosh — Mount Carmel College (Retd.), Bengaluru
+4. Pradeep Kumar Mohanty — IISER Kolkata
+5. Shirish Pathare — Homi Bhabha Centre for Science Education (HBCSE), TIFR, Mumbai
+6. Kripa Gowrishankar — Azim Premji University, Bengaluru
+7. Sushan Konar — National Centre for Radio Astrophysics (NCRA), TIFR, Pune
+8. Ikbal Ahmed — ICTS-TIFR, Bengaluru
+9. Rema Krishnaswamy — Azim Premji University, Bengaluru
+10. Pallavi Bhat — ICTS-TIFR, Bengaluru
+11. Rama Govindarajan — ICTS-TIFR, Bengaluru
+
+Display all eleven names. Keep the layout elegant and readable; no invented portraits. Do not omit a name or add previous-year organisers unless the programme team requests it.
+
+K. APPLICATION
+- Dates are not fixed and the application form is not open.
+- Keep an application call-to-action, but clicking “Submit application for SSWP 2027” (or the equivalent Apply button) must show a small, polished “Coming soon” message/modal.
+- Do not link to last year's application form or any inactive registration portal.
+- Do not pretend an application has been submitted.
+- Do not invent application deadlines or dates.
+
+L. REMOVE COMPLETELY
+- All previous-year photo-dump / gallery / archive sections.
+- All media dropzones, upload placeholders, photo upload UI, and “archived photos available” counters.
+- Any prior-year student photographs or event photographs unless the programme team provides explicit permission for their use.
+- “Critical Advisory Note” and prominent laptop warning.
+- “100% Fellowship”, “100% Fully Funded”, “fully funded residency”, and unverified reimbursement promises.
+- Any exam syllabus or list of topics.
+- Exact times in the daily schedule.
+- ICTS Simulation HUD, 60 FPS, active telemetry, phase readouts, Portal to Physics, Lab Gateway, Holographic Core Corridor, Experiential Matrix, invented facility claims, and all game/simulation terminology.
+- Email addresses of the organisers.
+- Media upload / dropzone instructions.
+- Any unsupported claims about laboratories, instruments, student group sizes, daily experiments, one-on-one mentorship, or campus facilities.
+
+FUNCTIONAL / ACCESSIBILITY / PERFORMANCE REQUIREMENTS
+- Responsive desktop, tablet and mobile layouts.
+- All key information must remain available if JavaScript, WebGL, or motion effects are unavailable.
+- Provide reduced-motion support (`prefers-reduced-motion`) and a non-animated accessible reading path.
+- Ensure readable contrast, keyboard navigation, visible focus states, semantic headings, alt text, and accessible dialogs.
+- Do not make scroll-jacking or animation a prerequisite for reading eligibility, selection, support, or application information.
+- Optimize loading; lazy-load images and 3D assets; avoid large unnecessary libraries and heavy shaders.
+- Test on a mid-range mobile device / constrained GPU.
+- Provide fallbacks for WebGL failure and reduced-motion preferences.
+- Do not show fake FPS counters or claim a frame rate.
+- Keep all content easy for the programme team to update (data-driven scientist entries, organiser list, dates, PDF URL, and application status).
+
+CONTENT GOVERNANCE / PRE-LAUNCH CHECKLIST
+Before considering the redesign complete:
+1. Confirm eligibility wording with organisers.
+2. Confirm selection-process wording with organisers.
+3. Confirm the support statement and link to the current official ICTS norms PDF.
+4. Confirm the laptop sentence with organisers.
+5. Confirm the daily programme description for 2027.
+6. Confirm all 11 organiser names and institutional affiliations.
+7. Verify each scientist's research/contribution and the 50% minimum Indian-women representation.
+8. Verify portrait image sources, reuse permissions, and attribution.
+9. Verify every scientific visual is correctly labelled as an illustration / conceptual visualization where appropriate.
+10. Verify that no previous-year photo gallery, photo-dump, media dropzone, or unapproved event photograph remains.
+11. Verify no unconfirmed dates, funding guarantees, exam syllabus, or invented programme details remain.
+12. Test every navigation link, PDF link, application modal, mobile layout, keyboard path, and reduced-motion state.
+
+DELIVERABLE
+Modify the existing website in place. At the end, provide:
+- A concise summary of what changed.
+- A list of files/components modified.
+- Any content or assets still required from the organisers (especially the official ICTS norms PDF and approved scientist portraits).
+- Any claims or affiliations that still require confirmation.
+- A confirmation that the final scientist list meets the 50% Indian women scientist requirement.
+- A confirmation that the application button displays “Coming soon”.
+Do not claim completion of anything that has not actually been implemented and tested.

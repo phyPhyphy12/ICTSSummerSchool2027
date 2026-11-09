@@ -8,29 +8,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        midnight: {
-          950: '#020617',
-          900: '#070f2b',
-          850: '#0b1335',
-          800: '#0f172a',
+        icts: {
+          crimson: '#9a393a',
+          'crimson-light': '#b84a4b',
+          'crimson-dark': '#7a2829',
+          'crimson-subtle': 'rgba(154, 57, 58, 0.12)',
+          amber: '#ef7f1a',
+          'amber-light': '#f59c47',
+          'amber-dark': '#cb670d',
+          'amber-subtle': 'rgba(239, 127, 26, 0.12)',
         },
-        quantum: {
-          cyan: '#22d3ee',
-          cyanGlow: '#06b6d4',
-          amethyst: '#a855f7',
-          amethystGlow: '#7e22ce',
-          amber: '#f59e0b',
-          amberGlow: '#d97706',
+        exhibition: {
+          950: '#0b0f17',
+          900: '#101520',
+          850: '#151c2a',
+          800: '#1c2436',
+          700: '#2b364e',
+          border: 'rgba(255, 255, 255, 0.08)',
+          'border-active': 'rgba(154, 57, 58, 0.45)',
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
-        mono: ['var(--font-jetbrains)', 'monospace'],
-      },
-      boxShadow: {
-        'glow-cyan': '0 0 25px -5px rgba(34, 211, 238, 0.4)',
-        'glow-amethyst': '0 0 25px -5px rgba(168, 85, 247, 0.4)',
-        'glow-amber': '0 0 25px -5px rgba(245, 158, 11, 0.4)',
+        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+        mono: ['var(--font-jetbrains)', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
     },
   },
