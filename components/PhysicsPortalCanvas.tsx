@@ -27,24 +27,8 @@ export default function PhysicsPortalCanvas({ onProgressUpdate }: PhysicsPortalC
     let height = (canvas.height = window.innerHeight);
     let dpr = window.devicePixelRatio || 1;
 
-    const resize = () => {
-      if (!canvas) return;
-      width = window.innerWidth;
-      height = window.innerHeight;
-      dpr = window.devicePixelRatio || 1;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.scale(dpr, dpr);
-      initSSWPTargets();
-    };
-
-    window.addEventListener('resize', resize);
-    resize();
-
     // -------------------------------------------------------------
-    // 1. PARTICLE SYSTEM (Phase 1 & Phase 3)
+    // 1. PARTICLE SYSTEM & SSWP TARGETS
     // -------------------------------------------------------------
     const NUM_PARTICLES = 320;
     interface Particle {
@@ -62,8 +46,6 @@ export default function PhysicsPortalCanvas({ onProgressUpdate }: PhysicsPortalC
 
     const particles: Particle[] = [];
     const colors = ['#22d3ee', '#38bdf8', '#a855f7', '#c084fc', '#f59e0b', '#fbbf24'];
-
-    // Generate targets for "SSWP" letters
     let sswpTargets: { x: number; y: number }[] = [];
 
     const initSSWPTargets = () => {
@@ -88,7 +70,6 @@ export default function PhysicsPortalCanvas({ onProgressUpdate }: PhysicsPortalC
 
         if (letter === 'S') {
           for (let t = 0; t <= 1; t += 0.05) {
-            // top curve, middle, bottom curve
             const px = ox + (Math.sin(t * Math.PI * 2) * 0.4 + 0.5) * w;
             const py = oy + (t - 0.5) * h;
             sswpTargets.push({ x: px, y: py });
@@ -100,11 +81,9 @@ export default function PhysicsPortalCanvas({ onProgressUpdate }: PhysicsPortalC
             sswpTargets.push({ x: px, y: py });
           }
         } else if (letter === 'P') {
-          // Vertical spine
           for (let t = 0; t <= 1; t += 0.08) {
             sswpTargets.push({ x: ox, y: oy - h * 0.5 + t * h });
           }
-          // Loop
           for (let angle = -Math.PI / 2; angle <= Math.PI / 2; angle += 0.15) {
             sswpTargets.push({
               x: ox + Math.cos(angle) * (w * 0.65),
@@ -115,7 +94,21 @@ export default function PhysicsPortalCanvas({ onProgressUpdate }: PhysicsPortalC
       });
     };
 
-    initSSWPTargets();
+    const resize = () => {
+      if (!canvas) return;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.scale(dpr, dpr);
+      initSSWPTargets();
+    };
+
+    window.addEventListener('resize', resize);
+    resize();
 
     // Initialize particles
     for (let i = 0; i < NUM_PARTICLES; i++) {
