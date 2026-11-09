@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Check
 } from 'lucide-react';
+import { getAssetPath } from './utils';
 
 // =====================================================================
 // 1. ELIGIBILITY MODAL
@@ -416,10 +417,10 @@ export function ArchiveModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
   if (!isOpen) return null;
 
   const posters = [
-    { year: '2026', title: 'SSWP 2026', src: '/images/sswp-2026.png', desc: 'Curriculum & Program Poster' },
-    { year: '2025', title: 'SSWP 2025', src: '/images/sswp-2025.png', desc: 'Curriculum & Program Poster' },
-    { year: '2024', title: 'SSWP 2024', src: '/images/sswp-2024.png', desc: 'Curriculum & Program Poster' },
-    { year: '2023', title: 'SSWP 2023', src: '/images/sswp-2023.png', desc: 'Inaugural Launch Poster' },
+    { year: '2026', title: 'SSWP 2026', src: getAssetPath('/images/sswp-2026.png'), desc: 'Curriculum & Program Poster' },
+    { year: '2025', title: 'SSWP 2025', src: getAssetPath('/images/sswp-2025.png'), desc: 'Curriculum & Program Poster' },
+    { year: '2024', title: 'SSWP 2024', src: getAssetPath('/images/sswp-2024.png'), desc: 'Curriculum & Program Poster' },
+    { year: '2023', title: 'SSWP 2023', src: getAssetPath('/images/sswp-2023.png'), desc: 'Inaugural Launch Poster' },
   ];
 
   return (

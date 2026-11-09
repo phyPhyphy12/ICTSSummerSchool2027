@@ -15,6 +15,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { DropzoneConfig } from './PhotoDropzoneModal';
+import { getAssetPath } from './utils';
 
 interface ExperientialCardsProps {
   onOpenDropzone: (config: DropzoneConfig) => void;
@@ -50,17 +51,17 @@ export default function ExperientialCards({ onOpenDropzone }: ExperientialCardsP
       defaultPhotos: [
         {
           title: 'Nambu Amphitheater Hall',
-          src: '/images/Nambu.jpg',
+          src: getAssetPath('/images/Nambu.jpg'),
           caption: 'Interactive blackboard & projection masterclasses in ICTS Nambu Hall.',
         },
         {
           title: 'SSWP 2024 Cohort & Faculty',
-          src: '/images/Group.jpg',
+          src: getAssetPath('/images/Group.jpg'),
           caption: 'Cohort assembled outside the main academic block with program directors.',
         },
         {
           title: 'SSWP 2026 Academic Overview',
-          src: '/images/sswp-2026.png',
+          src: getAssetPath('/images/sswp-2026.png'),
           caption: 'Official 2026 Curriculum and Lecture series roadmap.',
         },
       ],
@@ -91,17 +92,17 @@ export default function ExperientialCards({ onOpenDropzone }: ExperientialCardsP
       defaultPhotos: [
         {
           title: 'Faraday Surface Wave Hydrodynamics',
-          src: '/images/FaradayWave.PNG',
+          src: getAssetPath('/images/FaradayWave.PNG'),
           caption: 'High-speed fluid vibration cells demonstrating parametric resonance.',
         },
         {
           title: 'Electrostatic Van de Graaff Rig',
-          src: '/images/VDG.PNG',
+          src: getAssetPath('/images/VDG.PNG'),
           caption: 'High voltage discharge and ion breakdown experimentation.',
         },
         {
           title: 'Spark Gap Diagnostics',
-          src: '/images/VDG2.PNG',
+          src: getAssetPath('/images/VDG2.PNG'),
           caption: 'Breakdown field measurements and electromagnetic telemetry.',
         },
       ],
@@ -132,17 +133,17 @@ export default function ExperientialCards({ onOpenDropzone }: ExperientialCardsP
       defaultPhotos: [
         {
           title: 'Campus Central Courtyard',
-          src: '/images/Group2.jpg',
+          src: getAssetPath('/images/Group2.jpg'),
           caption: 'Evening cross-pollination discussions and student breakout circles.',
         },
         {
           title: 'SSWP 2025 Fellowship Cohort',
-          src: '/images/sswp-2025.png',
+          src: getAssetPath('/images/sswp-2025.png'),
           caption: 'The 2025 residential scholars during informal tutorial debriefs.',
         },
         {
           title: 'SSWP 2023 Inaugural Legacy',
-          src: '/images/sswp-2023.png',
+          src: getAssetPath('/images/sswp-2023.png'),
           caption: 'Historical launch of the Women in Physics summer school.',
         },
       ],
