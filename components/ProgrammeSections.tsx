@@ -16,6 +16,9 @@ import {
   Download
 } from 'lucide-react';
 import { getAssetPath } from './utils';
+import ScientistResearchVisual from '@/components/ScientistResearchVisual';
+import FloatingBubble from '@/components/FloatingBubble';
+import { SCIENTISTS } from './scientistsData';
 
 export default function ProgrammeSections() {
   const organisers = [

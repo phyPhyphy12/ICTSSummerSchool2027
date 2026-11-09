@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import WomenInPhysicsSection from '@/components/WomenInPhysicsSection';
+// WomenInPhysicsSection removed per redesign
 import ProgrammeSections from '@/components/ProgrammeSections';
 import Footer from '@/components/Footer';
 import ComingSoonModal from '@/components/ComingSoonModal';
@@ -20,7 +20,7 @@ export default function Home() {
       <HeroSection onOpenApply={() => setIsApplyOpen(true)} />
 
       {/* 3. Women in Physics — The Main Exhibition Journey (≥50% Indian Women Physicists) */}
-      <WomenInPhysicsSection />
+      {/* WomenInPhysicsSection removed per redesign */}
 
       {/* 4. Programme Core Information (About, Eligibility, Selection, Support/Norms, Typical Day, Organisers) */}
       <ProgrammeSections />

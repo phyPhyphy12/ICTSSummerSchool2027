@@ -30,8 +30,11 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+        serif: ['Georgia', 'Cambria', "Times New Roman", 'Times', 'serif'],
         mono: ['var(--font-jetbrains)', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+      },
+      boxShadow: {
+        'icts-glow': '0 0 8px #ef7f1a, 0 0 16px #ef7f1a',
       },
     },
   },
