@@ -107,6 +107,7 @@ export const organisers = {
   lede: 'SSWP 2027 organising committee representing leading academic institutions.',
   people: [
     { name: 'Sushan Konar', affiliation: 'National Centre for Radio Astrophysics (NCRA), TIFR, Pune' },
+    { name: 'Sumathi Rao', affiliation: 'ICTS-TIFR' },
     { name: 'Shirish Pathare', affiliation: 'Homi Bhabha Centre for Science Education (HBCSE), TIFR, Mumbai' },
     { name: 'Rema Krishnaswamy', affiliation: 'Azim Premji University, Bengaluru' },
     { name: 'Ranjini Bandyopadhyay', affiliation: 'Raman Research Institute (RRI), Bengaluru' },
