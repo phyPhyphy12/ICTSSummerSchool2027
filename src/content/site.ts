@@ -115,7 +115,6 @@ export const organisers = {
     { name: 'Sushan Konar', affiliation: 'National Centre for Radio Astrophysics (NCRA), TIFR, Pune' },
     { name: 'Ikbal Ahmed', affiliation: 'ICTS-TIFR, Bengaluru' },
     { name: 'Rema Krishnaswamy', affiliation: 'Azim Premji University, Bengaluru' },
-    { name: 'Pallavi Bhat', affiliation: 'ICTS-TIFR, Bengaluru' },
     { name: 'Rama Govindarajan', affiliation: 'ICTS-TIFR, Bengaluru' },
   ],
 } as const;
