@@ -1,0 +1,35 @@
+/*
+ * Design tokens. The two brand colours are sampled from the official ICTS logo
+ * (public/images/icts-logo.png): the crimson of the mark and lettering, and the
+ * amber of the divider rule and the word "for". Everything else is a neutral
+ * derived from them. The logo sits on white, so the site is a light theme.
+ */
+:root {
+  /* Brand, from the ICTS logo */
+  --crimson: #9a393a;
+  --crimson-strong: #7d2a2c;
+  --crimson-deep: #4d1618;
+  --amber: #ef7f1a;
+  --amber-soft: #f7b676;
+
+  /* Neutrals, warmed toward the crimson */
+  --paper: #fdfaf6;
+  --paper-tint: #f6eee6;
+  --surface: #ffffff;
+  --ink: #2a1718;
+  --ink-soft: #6a5556;
+  --line: rgb(154 57 58 / 0.16);
+  --line-strong: rgb(154 57 58 / 0.32);
+
+  /* Type */
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-body: var(--font-instrument), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shape and space */
+  --radius: 20px;
+  --radius-large: 28px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section-space: clamp(4.5rem, 10vw, 8rem);
+  --header-height: 4.5rem;
+  --shadow: 0 1px 2px rgb(77 22 24 / 0.06), 0 12px 32px -12px rgb(77 22 24 / 0.18);
+}

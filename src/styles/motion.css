@@ -1,0 +1,470 @@
+/*
+ * Motion. Everything here is progressive enhancement:
+ *  - the page is complete and readable with none of it applied;
+ *  - it only runs when the visitor has not asked for reduced motion;
+ *  - scroll-linked effects use native CSS scroll-driven animations behind @supports,
+ *    so there are no scroll listeners and no animation library.
+ */
+
+.scroll-progress {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Time-based: the rings of the hero gyroscope turn slowly on their own. */
+  @keyframes orbit-spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  .orbit__ring {
+    animation: orbit-spin 26s linear infinite;
+  }
+
+  .orbit__plane:nth-child(2) .orbit__ring {
+    animation-duration: 19s;
+    animation-direction: reverse;
+  }
+
+  .orbit__plane:nth-child(3) .orbit__ring {
+    animation-duration: 14s;
+  }
+
+  .orbit__plane:nth-child(4) .orbit__ring {
+    animation-duration: 9s;
+    animation-direction: reverse;
+  }
+
+  /* Dialogs ease in. */
+  @keyframes modal-in {
+    from {
+      opacity: 0;
+      transform: perspective(900px) translateY(1.5rem) rotateX(10deg);
+    }
+  }
+
+  @keyframes drawer-in {
+    from {
+      translate: 100% 0;
+    }
+  }
+
+  .modal[open] {
+    animation: modal-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .drawer[open] {
+    animation: drawer-in 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  /* Scroll-linked, tied to the page scroll position. */
+  @supports (animation-timeline: scroll()) {
+    @keyframes progress-grow {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 30;
+      height: 3px;
+      background: linear-gradient(90deg, var(--crimson), var(--amber));
+      transform-origin: 0 50%;
+      animation: progress-grow auto linear;
+      animation-timeline: scroll(root);
+    }
+  }
+
+  @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
+    /* The gyroscope turns in space and pulls toward the viewer over the first screen of scroll. */
+    @keyframes orbit-turn {
+      to {
+        rotate: 0 1 0 160deg;
+      }
+    }
+
+    @keyframes orbit-approach {
+      to {
+        scale: 1.45;
+        translate: 0 22vh;
+      }
+    }
+
+    .orbit__camera {
+      animation: orbit-turn linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 110vh;
+    }
+
+    .orbit__stage {
+      animation: orbit-approach linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 110vh;
+    }
+
+    /* The hero copy drifts up slightly faster than the page, for depth against the orbit. */
+    @keyframes hero-drift {
+      to {
+        translate: 0 -4rem;
+      }
+    }
+
+    .hero__copy {
+      animation: hero-drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 12vh 95vh;
+    }
+  }
+
+  /* Scroll-linked, tied to each element entering the viewport. */
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    /* Blocks tip up out of the page plane as they scroll in. */
+    @keyframes rise-3d {
+      from {
+        opacity: 0;
+        transform: perspective(1100px) translate3d(0, var(--lift, 3.5rem), -6rem) rotateX(var(--tilt, 18deg))
+          rotateY(var(--turn, 0deg));
+      }
+      to {
+        opacity: 1;
+        transform: perspective(1100px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+      }
+    }
+
+    .reveal {
+      transform-origin: 50% 100%;
+      animation: rise-3d linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+
+    /* Card rows fan in from different depths and angles (stagger lives in the keyframe inputs). */
+    @media (min-width: 48rem) {
+      .depth > .reveal:first-child {
+        --turn: 16deg;
+        --lift: 2.5rem;
+      }
+
+      .depth > .reveal:last-child {
+        --turn: -16deg;
+        --lift: 7rem;
+      }
+
+      .card-grid--three > .reveal:nth-child(2) {
+        --lift: 4.75rem;
+      }
+    }
+
+    .people__item.reveal {
+      --tilt: 28deg;
+      --lift: 2rem;
+    }
+
+    /* Campus photograph: the frame grows to full size while the photo drifts inside it (parallax). */
+    @keyframes frame-grow {
+      from {
+        transform: perspective(1400px) rotateX(14deg) scale(0.84);
+      }
+      to {
+        transform: perspective(1400px) rotateX(0deg) scale(1);
+      }
+    }
+
+    @keyframes photo-drift {
+      from {
+        transform: translateY(-4%);
+      }
+      to {
+        transform: translateY(4%);
+      }
+    }
+
+    .campus__frame {
+      view-timeline: --campus block;
+      transform-origin: 50% 100%;
+      animation: frame-grow linear both;
+      animation-timeline: --campus;
+      animation-range: entry 0% cover 45%;
+    }
+
+    .campus__photo {
+      animation: photo-drift linear both;
+      animation-timeline: --campus;
+    }
+  }
+}
+
+/* Page-load, hover and pointer effects. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero: the copy, the facts and the orbit arrive in sequence when the page opens. */
+  @keyframes load-rise {
+    from {
+      opacity: 0;
+      filter: blur(6px);
+      transform: translateY(1.75rem);
+    }
+  }
+
+  @keyframes load-bloom {
+    from {
+      opacity: 0;
+      transform: scale(0.7) rotate(-25deg);
+    }
+  }
+
+  .hero__copy > *,
+  .facts__item {
+    animation: load-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero__copy > :nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .hero__copy > :nth-child(3) {
+    animation-delay: 0.18s;
+  }
+
+  .hero__copy > :nth-child(4) {
+    animation-delay: 0.26s;
+  }
+
+  .hero__copy > :nth-child(5) {
+    animation-delay: 0.34s;
+  }
+
+  .hero__copy > :nth-child(6) {
+    animation-delay: 0.42s;
+  }
+
+  .facts__item:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+
+  .facts__item:nth-child(2) {
+    animation-delay: 0.58s;
+  }
+
+  .facts__item:nth-child(3) {
+    animation-delay: 0.66s;
+  }
+
+  .facts__item:nth-child(4) {
+    animation-delay: 0.74s;
+  }
+
+  .orbit {
+    animation: load-bloom 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+  }
+
+  /* Ambient washes drift slowly. */
+  @keyframes ambient-drift {
+    to {
+      translate: 9vmax 7vmax;
+      scale: 1.2;
+    }
+  }
+
+  .ambient span {
+    animation: ambient-drift 26s ease-in-out infinite alternate;
+  }
+
+  .ambient span:nth-child(2) {
+    animation-duration: 34s;
+    animation-direction: alternate-reverse;
+  }
+
+  .ambient span:nth-child(3) {
+    animation-duration: 42s;
+  }
+
+  /* Support panel: the rings breathe. */
+  @keyframes ring-breathe {
+    to {
+      scale: 1.14;
+    }
+  }
+
+  .support::before,
+  .support::after {
+    animation: ring-breathe 8s ease-in-out infinite alternate;
+  }
+
+  .support::after {
+    animation-duration: 11s;
+  }
+
+  /* Cards: lift on hover, tilt toward the pointer, and carry a light that follows it
+     (the --tilt and --light properties are set by PointerEffects.tsx). */
+  .card-grid,
+  #support .container {
+    perspective: 1200px;
+  }
+
+  .card,
+  .support {
+    --tilt-x: 1;
+    --tilt-y: 0;
+    --tilt-angle: 0deg;
+    rotate: var(--tilt-x) var(--tilt-y) 0 var(--tilt-angle);
+    transition:
+      rotate 0.25s ease-out,
+      translate 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.35s,
+      border-color 0.35s;
+  }
+
+  .support {
+    rotate: var(--tilt-x) var(--tilt-y) 0 calc(var(--tilt-angle) * 0.3);
+    background:
+      radial-gradient(34rem circle at var(--light-x, 85%) var(--light-y, 0%), rgb(255 255 255 / 0.13), transparent 60%),
+      linear-gradient(135deg, var(--crimson-strong), var(--crimson-deep));
+  }
+
+  .card:hover {
+    translate: 0 -0.6rem;
+    border-color: var(--line-strong);
+    box-shadow:
+      0 2px 4px rgb(77 22 24 / 0.06),
+      0 34px 60px -24px rgb(77 22 24 / 0.38);
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      20rem circle at var(--light-x, 50%) var(--light-y, 0%),
+      rgb(239 127 26 / 0.16),
+      transparent 62%
+    );
+    opacity: 0;
+    transition: opacity 0.35s;
+    pointer-events: none;
+  }
+
+  .card:hover::after {
+    opacity: 1;
+  }
+
+  /* Buttons: a sheen crosses the primary button, and arrows nudge. */
+  .button--primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.32) 50%, transparent 65%);
+    translate: -120% 0;
+    transition: translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    pointer-events: none;
+  }
+
+  .button--primary:hover::after {
+    translate: 120% 0;
+  }
+
+  .button .icon {
+    transition: translate 0.25s;
+  }
+
+  .button:hover .icon {
+    translate: 0.15rem 0.15rem;
+  }
+
+  /* Lists: organisers and programme strands respond to hover. */
+  .people__item,
+  .pillars li {
+    transition: border-color 0.3s;
+  }
+
+  .people__name,
+  .people__affiliation {
+    transition:
+      translate 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+      color 0.3s;
+  }
+
+  .people__item:hover,
+  .pillars li:hover {
+    border-color: var(--amber);
+  }
+
+  .people__item:hover .people__name {
+    translate: 0.4rem 0;
+    color: var(--crimson);
+  }
+
+  .people__item:hover .people__affiliation {
+    translate: 0.4rem 0;
+  }
+
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    /* The amber rule beside each section label draws itself in. */
+    @keyframes rule-draw {
+      from {
+        transform: scaleX(0);
+      }
+    }
+
+    .section-heading .eyebrow::after {
+      animation: rule-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 32%;
+    }
+
+    /* The coloured bar on each part of the day draws across as the card arrives. */
+    .day__part::before {
+      transform-origin: 0 50%;
+      animation: rule-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 60% cover 40%;
+    }
+
+    /* Marquee rows slide in opposite directions as the band crosses the screen. */
+    @keyframes marquee-left {
+      to {
+        transform: translateX(-28vw);
+      }
+    }
+
+    @keyframes marquee-right {
+      to {
+        transform: translateX(28vw);
+      }
+    }
+
+    .marquee {
+      view-timeline: --marquee block;
+    }
+
+    .marquee__row {
+      animation: marquee-left linear both;
+      animation-timeline: --marquee;
+    }
+
+    .marquee__row--reverse {
+      animation-name: marquee-right;
+    }
+  }
+
+  @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
+    /* The ambient layer slides against the scroll, so the colour shifts down the page. */
+    @keyframes ambient-scroll {
+      to {
+        transform: translateY(-14vh) rotate(8deg);
+      }
+    }
+
+    .ambient {
+      animation: ambient-scroll linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}

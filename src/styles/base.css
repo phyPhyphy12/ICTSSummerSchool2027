@@ -1,0 +1,307 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keeps anchored sections and focused controls clear of the sticky header. */
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A modal dialog is open: stop the page behind it from scrolling. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--crimson);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--crimson-strong);
+}
+
+address {
+  font-style: normal;
+}
+
+::selection {
+  background: var(--crimson);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.icon {
+  flex: none;
+}
+
+.container {
+  width: min(100% - 2 * var(--gutter), 76rem);
+  margin-inline: auto;
+}
+
+/* Small letterspaced caps, echoing the "Tata Institute of Fundamental Research" line of the logo. */
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    translate 0.2s;
+}
+
+.button:hover {
+  translate: 0 -2px;
+}
+
+.button--small {
+  min-height: 2.5rem;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.9375rem;
+}
+
+.button--primary {
+  position: relative;
+  overflow: hidden;
+  background: var(--crimson);
+  color: #fff;
+}
+
+.button--primary:hover {
+  background: var(--crimson-strong);
+  color: #fff;
+}
+
+.button--ghost {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.button--ghost:hover {
+  border-color: var(--crimson);
+  color: var(--crimson-strong);
+}
+
+.button--light {
+  background: #fff;
+  color: var(--crimson-deep);
+}
+
+.button--light:hover {
+  background: var(--amber-soft);
+  color: var(--crimson-deep);
+}
+
+.button--outline-light {
+  border-color: rgb(255 255 255 / 0.5);
+  color: #fff;
+}
+
+.button--outline-light:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background: var(--paper-tint);
+  color: var(--crimson);
+}
+
+/* Dialogs */
+dialog {
+  border: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+dialog::backdrop {
+  background: rgb(42 23 24 / 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: min(34rem, 100% - 2rem);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+}
+
+.modal[open] {
+  display: grid;
+  gap: 1rem;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.modal__title {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  padding-right: 2rem;
+}
+
+.modal__points {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--paper-tint);
+  font-size: 0.9375rem;
+}
+
+.modal__points li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.modal__points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drawer {
+  width: min(22rem, 88vw);
+  height: 100dvh;
+  max-height: none;
+  margin: 0 0 0 auto;
+  padding: 1rem var(--gutter) 2rem;
+}
+
+.drawer[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3rem;
+}
+
+.drawer__nav {
+  display: grid;
+  flex: 1;
+  align-content: start;
+}
+
+.drawer__nav a {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}

@@ -1,53 +1,59 @@
-# Summer School for Women in Physics (SSWP 2027) — ICTS-TIFR Bengaluru
+# Summer School for Women in Physics 2027 (SSWP), ICTS-TIFR Bengaluru
 
-**“HER CONTRIBUTIONS TO PHYSICS. YOUR FUTURE IN SCIENCE.”**
+Website for the two-week Summer School for Women in Physics, for undergraduate women studying physics, hosted at the International Centre for Theoretical Sciences (ICTS-TIFR), Bengaluru.
 
-The official experiential website for the **Summer School for Women in Physics (SSWP 2027)** hosted at the **International Centre for Theoretical Sciences (ICTS-TIFR)** in Bengaluru, India.
+Live site: https://phyphyphy12.github.io/ICTSSummerSchool2027/
 
----
+## What is on the page
 
-## 🏛️ Editorial & Exhibition Design
-Designed as a museum-quality science exhibition celebrating pioneering women physicists while clearly presenting the academic programme for undergraduate students:
+One page, in this order: hero, about, eligibility and selection, support and accommodation (with the ICTS travel norms PDF), a typical day, the campus photograph, programme organisers, contact, footer. Every "Apply" button opens a "coming soon" notice until applications open.
 
-- **Official ICTS Identity & Palette:** Sampled directly from the official ICTS logo:
-  - Primary Brand Accent: `ICTS Crimson / Terracotta` (`#9a393a`)
-  - Secondary Brand Accent: `ICTS Solar Amber` (`#ef7f1a`)
-  - Exhibition Backdrop: Restrained slate-graphite neutrals (`#0b0f17`, `#131924`)
-- **Scientist Exhibition Journey:**
-  - **Strict Representation:** Exactly **50% Indian Women Physicists** (6 Indian + 6 International Pioneers).
-  - Authentic portraits from verified archives (Indian Academy of Sciences, Smithsonian, Nobel Foundation, CERN, Carnegie Institution).
-  - Custom, scientifically grounded visual representations for each scientist's research (cosmic ray emulsion tracks, Noether continuous symmetry, collider hadronic jets, parity-violating beta decay, multipartite quantum entanglement, radio pulsar sweeps, nonlinear plasma solitons, flat galactic rotation curves, hydrodynamic shear instabilities, nuclear fission droplet scission, colloidal brownian arrest, and radioactive magnetic deflection).
-  - Clear scientific illustration / conceptual visualization labels with authoritative source links.
-- **Accurate Programme Parameters:**
-  - **Eligibility:** Open to women students who have completed the first year of a B.Sc. Physics programme or an Integrated B.Sc.–M.Sc. programme *(Subject to confirmation by organisers)*.
-  - **Selection:** Based on an online, MCQ-based test evaluating basic conceptual physics clarity.
-  - **Support & Travel:** Provided by ICTS to selected students as per applicable ICTS norms, directly linking to the official ICTS Travel Norms PDF.
-  - **Programme Organisers:** Full listing of all 11 faculty and institutional affiliations.
-  - **Application Status:** Polished "Coming soon" dialog communicating that 2027 dates and registration will open soon.
+## Editing content
 
----
+All text, links, organiser names and the contact email live in one file: `src/content/site.ts`. Change it there and nothing else needs touching.
 
-## 🛠️ Tech Stack
-- **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS with official ICTS tokens
-- **Rendering:** HTML5 Canvas API with responsive 60 FPS animation loops and `prefers-reduced-motion` accessibility support
-- **Icons:** Lucide React
-- **Static Export & CI/CD:** Configured for GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
+## Project structure
 
----
-
-## 🚀 Development & Deployment
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Run local development server
-npm run dev
-
-# 3. Static production build
-npm run build
+```
+src/
+  app/                 Next.js App Router entry (layout, page, global stylesheet import)
+  content/site.ts      All editable copy and links
+  components/
+    layout/            Header, MobileNav, Footer
+    sections/          One file per page section (Hero, About, Eligibility, ...)
+    ui/                Shared pieces (Dialog, ApplyDialog, Icon, SectionHeading)
+  lib/assets.ts        Prefixes /public paths with the GitHub Pages base path
+  styles/
+    tokens.css         Colours, type, spacing
+    base.css           Elements, buttons, dialogs
+    layout.css         Header and footer
+    sections.css       Section layouts
+    motion.css         All animation, including the scroll-driven 3D effects
+public/                Logo, campus photo, travel norms PDF
+docs/briefs/           Earlier design briefs, kept for reference (the scientist exhibition they describe has been removed)
+.agents/skills/        Modern Web Guidance skill for coding agents (installed with `npx modern-web-guidance@latest install`)
 ```
 
-Production site is hosted live on GitHub Pages:
-**[https://phyphyphy12.github.io/ICTSSummerSchool2027/](https://phyphyphy12.github.io/ICTSSummerSchool2027/)**
+## Design
+
+- **Colour** comes from the official ICTS logo (`public/images/icts-logo.png`): crimson `#9a393a` for the mark and lettering, amber `#ef7f1a` for the rule and the word "for". The logo sits on white, so the site is a light theme with warm neutrals. Tokens are in `src/styles/tokens.css`.
+- **Type**: Fraunces for headings, Instrument Sans for text, loaded through `next/font`.
+- **Motion** is plain CSS, no animation library. A 3D gyroscope of orbits in the hero turns and approaches as the page scrolls; sections tip up out of the page as they enter; the campus photo has a parallax drift; a progress bar tracks the scroll. These use native scroll-driven animations behind `@supports` and are switched off for visitors who prefer reduced motion. Without them the page is fully readable.
+- **Dialogs** (the Apply notice and the mobile menu) are native `<dialog>` elements, so focus handling, Esc and backdrop dismissal come from the browser.
+
+## Development
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run typecheck
+npm run build      # static export to ./out
+```
+
+## Deployment
+
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the static export and publishes it to GitHub Pages. The base path (`/ICTSSummerSchool2027`) is applied automatically when building in GitHub Actions (`next.config.mjs`).
+
+## Before launch
+
+Items the organisers still need to confirm (carried over from the briefs): the eligibility wording, the selection wording, the support statement and norms PDF, the laptop note, the daily programme description, and all eleven organiser names and affiliations.
