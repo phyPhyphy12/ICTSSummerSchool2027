@@ -106,7 +106,7 @@ export const organisers = {
   title: 'Programme organisers',
   lede: 'SSWP 2027 organising committee representing leading academic institutions.',
   people: [
-    { name: 'Ikbal Ahmed', affiliation: 'ICTS-TIFR, Bengaluru' },
+    { name: 'Ikbal Ahmed', affiliation: 'ICTS-TIFR, Bengaluru', role: 'Resource Person' },
     { name: 'Kripa Gowrishankar', affiliation: 'Azim Premji University, Bengaluru' },
     { name: 'Mahua Ghosh', affiliation: 'Mount Carmel College (Retd.), Bengaluru' },
     { name: 'Pradeep Kumar Mohanty', affiliation: 'IISER Kolkata' },

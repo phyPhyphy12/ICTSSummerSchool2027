@@ -18,6 +18,7 @@ export function Organisers() {
                 {String(index + 1).padStart(2, '0')}
               </span>
               <span className="people__name">{person.name}</span>
+              {'role' in person && <span className="people__affiliation">{person.role}</span>}
               <span className="people__affiliation">{person.affiliation}</span>
             </li>
           ))}
