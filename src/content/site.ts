@@ -106,16 +106,16 @@ export const organisers = {
   title: 'Programme organisers',
   lede: 'SSWP 2027 organising committee representing leading academic institutions.',
   people: [
-    { name: 'Rajaram Nityananda', affiliation: 'ICTS-TIFR, Bengaluru' },
-    { name: 'Ranjini Bandyopadhyay', affiliation: 'Raman Research Institute (RRI), Bengaluru' },
+    { name: 'Ikbal Ahmed', affiliation: 'ICTS-TIFR, Bengaluru' },
+    { name: 'Kripa Gowrishankar', affiliation: 'Azim Premji University, Bengaluru' },
     { name: 'Mahua Ghosh', affiliation: 'Mount Carmel College (Retd.), Bengaluru' },
     { name: 'Pradeep Kumar Mohanty', affiliation: 'IISER Kolkata' },
-    { name: 'Shirish Pathare', affiliation: 'Homi Bhabha Centre for Science Education (HBCSE), TIFR, Mumbai' },
-    { name: 'Kripa Gowrishankar', affiliation: 'Azim Premji University, Bengaluru' },
-    { name: 'Sushan Konar', affiliation: 'National Centre for Radio Astrophysics (NCRA), TIFR, Pune' },
-    { name: 'Ikbal Ahmed', affiliation: 'ICTS-TIFR, Bengaluru' },
-    { name: 'Rema Krishnaswamy', affiliation: 'Azim Premji University, Bengaluru' },
+    { name: 'Rajaram Nityananda', affiliation: 'ICTS-TIFR, Bengaluru' },
     { name: 'Rama Govindarajan', affiliation: 'ICTS-TIFR, Bengaluru' },
+    { name: 'Ranjini Bandyopadhyay', affiliation: 'Raman Research Institute (RRI), Bengaluru' },
+    { name: 'Rema Krishnaswamy', affiliation: 'Azim Premji University, Bengaluru' },
+    { name: 'Shirish Pathare', affiliation: 'Homi Bhabha Centre for Science Education (HBCSE), TIFR, Mumbai' },
+    { name: 'Sushan Konar', affiliation: 'National Centre for Radio Astrophysics (NCRA), TIFR, Pune' },
   ],
 } as const;
 
