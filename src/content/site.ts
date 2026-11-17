@@ -7,7 +7,7 @@ export const site = {
   shortName: 'SSWP 2027',
   name: 'Summer School for Women in Physics 2027',
   host: 'International Centre for Theoretical Sciences (ICTS-TIFR), Bengaluru',
-  tagline: 'Her contributions to physics. Your future in science.',
+  tagline: '',
   intro:
     'A two-week summer school at ICTS Bengaluru created to inspire undergraduate women, deepen conceptual understanding across the foundations of physics, and open pathways toward research careers.',
   address: 'Survey No. 151, Shivakote, Hesaraghatta Hobli, Bengaluru 560089, India',
@@ -31,7 +31,7 @@ export const facts = [
   { label: 'Duration', value: 'Two weeks' },
   { label: 'For', value: 'Undergraduate women in physics' },
   { label: 'Where', value: 'ICTS-TIFR, Bengaluru' },
-  { label: 'Dates', value: 'To be announced' },
+  { label: 'Dates', value: '31 May – 11 June 2027' },
 ] as const;
 
 export const about = {
@@ -51,14 +51,14 @@ export const eligibility = {
     {
       heading: 'Eligibility criteria',
       statement:
-        'The school is open to women students who have completed the first year of a B.Sc. Physics programme or an Integrated B.Sc.–M.Sc. programme in Physics.',
-      note: 'Working eligibility statement for the 2027 edition; subject to final reconfirmation by the programme organisers.',
+        "The school is open to women studying for a bachelor's degree/Integrated Masters degree with physics as a subject, and are entering their second year.",
+      note: '',
     },
     {
       heading: 'Selection process',
       statement:
         'Selection will be based on an online, MCQ-based test consisting of basic conceptual physics questions.',
-      note: 'Evaluates fundamental physical intuition. Exam details, platform guidelines, and schedule will be communicated when applications open.',
+      note: '',
     },
   ],
 } as const;
@@ -78,17 +78,17 @@ export const typicalDay = {
   lede: 'Balancing foundational lectures, laboratory inquiry, and informal discussion.',
   parts: [
     {
-      when: 'Morning',
+      when: '',
       what: 'Lectures',
       text: 'Lectures by eminent professors focusing on broad, foundational principles of physics rather than hyper-specialized research, fostering direct engagement and open question sessions.',
     },
     {
-      when: 'Afternoon',
+      when: '',
       what: 'Experiments',
       text: 'Experimental sessions and tabletop laboratory investigations where participants test theoretical predictions, explore simple physical setups, and work collaboratively on empirical observations.',
     },
     {
-      when: 'Evening',
+      when: '',
       what: 'Discussions',
       text: 'Discussions, problem-solving sessions, and informal interactions with research scholars and faculty on careers in physics and academic pathways.',
     },
@@ -121,10 +121,11 @@ export const organisers = {
 } as const;
 
 export const application = {
-  title: 'Applications opening soon',
-  body: 'Applications for the Summer School for Women in Physics 2027 have not opened yet. Official programme dates, application portal access, and examination schedules will be announced here.',
+  title: 'Exam portal opens here',
+  body: 'The application and exam portal for the Summer School for Women in Physics 2027 will open on this page. Programme dates: 31 May – 11 June 2027. Application deadline: 28 February 2026.',
   points: [
-    'Programme dates: to be announced by the organising committee',
-    'Eligibility: women who have completed the first year of B.Sc. Physics or Integrated B.Sc.–M.Sc. in Physics',
+    'Programme dates: 31 May – 11 June 2027',
+    'Application deadline: 28 February 2026',
+    'The online exam portal will be made available here when applications open',
   ],
 } as const;
