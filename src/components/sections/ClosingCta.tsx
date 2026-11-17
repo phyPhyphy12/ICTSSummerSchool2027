@@ -11,8 +11,8 @@ export function ClosingCta() {
           What questions will <em>you</em> ask?
         </h2>
         <p className="closing__lede">
-          Programme: 31 May – 11 June 2027. Application deadline: 28 February 2026. The exam portal will open on this
-          page.
+          Programme: 31 May – 11 June 2027. Application deadline: 28 February 2026. Recommendation letters can be
+          submitted until 16 March 2027. The exam portal will open on this page.
         </p>
         <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary">
           Apply for {site.shortName}
