@@ -5,7 +5,6 @@ import { Campus } from '@/components/sections/Campus';
 import { ClosingCta } from '@/components/sections/ClosingCta';
 import { Eligibility } from '@/components/sections/Eligibility';
 import { Hero } from '@/components/sections/Hero';
-import { Marquee } from '@/components/sections/Marquee';
 import { Organisers } from '@/components/sections/Organisers';
 import { Support } from '@/components/sections/Support';
 import { TypicalDay } from '@/components/sections/TypicalDay';
@@ -28,7 +27,6 @@ export default function HomePage() {
         <Eligibility />
         <Support />
         <TypicalDay />
-        <Marquee />
         <Campus />
         <Organisers />
         <ClosingCta />
