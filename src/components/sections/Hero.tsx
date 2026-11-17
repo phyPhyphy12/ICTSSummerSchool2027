@@ -30,7 +30,7 @@ export function Hero() {
 
         <div className="hero__visual">
           <img
-            src={asset('/images/hero-sswp.png')}
+            src={asset('/images/hero-sswp.PNG')}
             alt="Students at a chalkboard with the words Summer School for Women in Physics 2027"
             width={521}
             height={332}
