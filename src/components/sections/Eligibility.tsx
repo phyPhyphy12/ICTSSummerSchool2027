@@ -12,7 +12,7 @@ export function Eligibility() {
               <p className="card__index">{String(index + 1).padStart(2, '0')}</p>
               <h3>{card.heading}</h3>
               <p className="card__statement">{card.statement}</p>
-              <p className="card__note">{card.note}</p>
+              {card.note ? <p className="card__note">{card.note}</p> : null}
             </article>
           ))}
         </div>
