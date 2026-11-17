@@ -15,8 +15,7 @@ export function TypicalDay() {
 
         <ol className="card-grid card-grid--three depth day">
           {typicalDay.parts.map((part) => (
-            <li key={part.when} className="card day__part reveal">
-              <p className="card__index">{part.when}</p>
+            <li key={part.what} className="card day__part reveal">
               <h3>{part.what}</h3>
               <p>{part.text}</p>
             </li>
