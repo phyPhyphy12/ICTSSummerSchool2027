@@ -9,7 +9,7 @@ export const site = {
   host: 'International Centre for Theoretical Sciences (ICTS-TIFR), Bengaluru',
   tagline: '',
   intro:
-    'A two-week summer school at ICTS Bengaluru created to inspire undergraduate women, deepen conceptual understanding across the foundations of physics, and open pathways toward research careers.',
+    'A two-week summer school at ICTS Bengaluru created to inspire women undergraduates, deepen conceptual understanding across the foundations of physics, and open pathways toward research careers.',
   address: 'Survey No. 151, Shivakote, Hesaraghatta Hobli, Bengaluru 560089, India',
   ictsUrl: 'https://www.icts.res.in',
   travelNorms: {
@@ -29,16 +29,16 @@ export const navLinks = [
 
 export const facts = [
   { label: 'Duration', value: 'Two weeks' },
-  { label: 'For', value: 'Undergraduate women in physics' },
+  { label: 'For', value: 'Women undergraduates in physics' },
   { label: 'Where', value: 'ICTS-TIFR, Bengaluru' },
   { label: 'Dates', value: '31 May – 11 June 2027' },
 ] as const;
 
 export const about = {
   eyebrow: 'About the school',
-  title: 'Encouraging undergraduate women to pursue physics',
+  title: 'Encouraging women undergraduates to pursue physics',
   paragraphs: [
-    'The Summer School for Women in Physics (SSWP) at ICTS-TIFR is designed to encourage undergraduate women to consider physics as a career and to experience the excitement and interconnectedness of physics through lectures, simple experiments or demonstrations, open-ended discussion, and problem-solving.',
+    'The Summer School for Women in Physics (SSWP) at ICTS-TIFR is designed to encourage women undergraduates to consider physics as a career and to experience the excitement and interconnectedness of physics through lectures, simple experiments or demonstrations, open-ended discussion, and problem-solving.',
     'By bringing together enthusiastic students and active physicists in a collaborative academic setting, the programme fosters deep conceptual understanding, scientific curiosity, and confidence in approaching foundational questions.',
   ],
   pillars: ['Lectures', 'Experiments & demonstrations', 'Open-ended discussion', 'Problem-solving'],
@@ -57,7 +57,7 @@ export const eligibility = {
     {
       heading: 'Selection process',
       statement:
-        'Selection will be based on an online, MCQ-based test consisting of basic conceptual physics questions.',
+        'Selection will be based on an online, MCQ-based test consisting of basic conceptual physics questions. We make every effort to ensure a wide representation across the country.',
       note: 'Recommendation letters can be submitted until 16 March 2027.',
     },
   ],
