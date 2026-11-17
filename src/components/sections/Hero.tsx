@@ -2,26 +2,7 @@ import { facts, site } from '@/content/site';
 import { APPLY_DIALOG_ID } from '@/components/ui/ApplyDialog';
 import { OpenDialogButton } from '@/components/ui/Dialog';
 import { Icon } from '@/components/ui/Icon';
-
-/** Decorative 3D gyroscope of orbits. Spins on its own; tilts and zooms with page scroll (see motion.css). */
-function OrbitScene() {
-  return (
-    <div className="orbit" aria-hidden="true">
-      <div className="orbit__stage">
-        <div className="orbit__camera">
-          {[0, 1, 2, 3].map((index) => (
-            <div key={index} className="orbit__plane">
-              <div className="orbit__ring">
-                <span className="orbit__body" />
-              </div>
-            </div>
-          ))}
-        </div>
-        <span className="orbit__core" />
-      </div>
-    </div>
-  );
-}
+import { asset } from '@/lib/assets';
 
 export function Hero() {
   return (
@@ -32,7 +13,6 @@ export function Hero() {
           <h1 id="hero-title">
             Summer School for <em>Women in Physics</em> <span className="hero__year">2027</span>
           </h1>
-          <p className="hero__tagline">{site.tagline}</p>
           <p className="hero__intro">{site.intro}</p>
 
           <div className="hero__actions">
@@ -43,10 +23,21 @@ export function Hero() {
               About the programme <Icon name="arrowDown" size={16} />
             </a>
           </div>
-          <p className="hero__notice">Dates to be announced. Applications will open soon.</p>
+          <p className="hero__notice">
+            Programme: 31 May – 11 June 2027 · Application deadline: 28 February 2026
+          </p>
         </div>
 
-        <OrbitScene />
+        <div className="hero__visual">
+          <img
+            src={asset('/images/hero-sswp.png')}
+            alt="Students at a chalkboard with the words Summer School for Women in Physics 2027"
+            width={521}
+            height={332}
+            decoding="async"
+            className="hero__photo"
+          />
+        </div>
       </div>
 
       <dl className="container facts">
