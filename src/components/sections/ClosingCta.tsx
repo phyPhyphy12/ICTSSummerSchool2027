@@ -10,7 +10,10 @@ export function ClosingCta() {
         <h2 id="closing-title">
           What questions will <em>you</em> ask?
         </h2>
-        <p className="closing__lede">Dates to be announced. Applications will open soon, on this page.</p>
+        <p className="closing__lede">
+          Programme: 31 May – 11 June 2027. Application deadline: 28 February 2026. The exam portal will open on this
+          page.
+        </p>
         <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary">
           Apply for {site.shortName}
         </OpenDialogButton>
