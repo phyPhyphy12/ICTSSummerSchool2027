@@ -58,7 +58,7 @@ export const eligibility = {
       heading: 'Selection process',
       statement:
         'Selection will be based on an online, MCQ-based test consisting of basic conceptual physics questions.',
-      note: '',
+      note: 'Recommendation letters can be submitted until 16 March 2027.',
     },
   ],
 } as const;
@@ -122,10 +122,11 @@ export const organisers = {
 
 export const application = {
   title: 'Exam portal opens here',
-  body: 'The application and exam portal for the Summer School for Women in Physics 2027 will open on this page. Programme dates: 31 May – 11 June 2027. Application deadline: 28 February 2026.',
+  body: 'The application and exam portal for the Summer School for Women in Physics 2027 will open on this page. Programme dates: 31 May – 11 June 2027. Application deadline: 28 February 2026. Recommendation letters can be submitted until 16 March 2027.',
   points: [
     'Programme dates: 31 May – 11 June 2027',
     'Application deadline: 28 February 2026',
+    'Recommendation letters can be submitted until 16 March 2027',
     'The online exam portal will be made available here when applications open',
   ],
 } as const;
