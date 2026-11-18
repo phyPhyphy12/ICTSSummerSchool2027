@@ -61,11 +61,9 @@
 .hero__photo {
   display: block;
   width: 100%;
+  /* Never crop: the chalkboard title must always be fully visible below the header. */
   height: auto;
-  max-height: min(82vh, 56.25vw);
   aspect-ratio: 2400 / 1333;
-  object-fit: cover;
-  object-position: 50% 45%;
 }
 
 .hero__copy {
