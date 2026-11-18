@@ -109,18 +109,6 @@
       animation-range: 0 110vh;
     }
 
-    /* The hero copy drifts up slightly faster than the page, for depth against the orbit. */
-    @keyframes hero-drift {
-      to {
-        translate: 0 -4rem;
-      }
-    }
-
-    .hero__copy {
-      animation: hero-drift linear both;
-      animation-timeline: scroll(root);
-      animation-range: 12vh 95vh;
-    }
   }
 
   /* Scroll-linked, tied to each element entering the viewport. */

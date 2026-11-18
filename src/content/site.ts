@@ -122,10 +122,10 @@ export const organisers = {
 
 export const application = {
   title: 'Exam portal opens here',
-  body: 'The application and exam portal for the Summer School for Women in Physics 2027 will open on this page. Programme dates: 31 May – 11 June 2027. Application deadline: 28 February 2026. Recommendation letters can be submitted until 16 March 2027.',
+  body: 'The application and exam portal for the Summer School for Women in Physics 2027 will open on this page. Programme dates: 31 May – 11 June 2027. Application deadline: 28 February 2027. Recommendation letters can be submitted until 16 March 2027.',
   points: [
     'Programme dates: 31 May – 11 June 2027',
-    'Application deadline: 28 February 2026',
+    'Application deadline: 28 February 2027',
     'Recommendation letters can be submitted until 16 March 2027',
     'The online exam portal will be made available here when applications open',
   ],

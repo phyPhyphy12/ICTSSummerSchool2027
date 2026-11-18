@@ -7,37 +7,45 @@ import { asset } from '@/lib/assets';
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="container hero__grid">
-        <div className="hero__copy">
-          <p className="eyebrow">{site.host}</p>
-          <h1 id="hero-title">
-            Summer School for <em>Women in Physics</em> <span className="hero__year">2027</span>
-          </h1>
-          <p className="hero__intro">{site.intro}</p>
+      {/* The chalkboard in the photo carries the visible title; the h1 stays for screen readers and SEO. */}
+      <h1 id="hero-title" className="visually-hidden">
+        {site.name}
+      </h1>
 
-          <div className="hero__actions">
-            <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary">
-              Apply for {site.shortName}
-            </OpenDialogButton>
-            <a href="#about" className="button button--ghost">
-              About the programme <Icon name="arrowDown" size={16} />
-            </a>
-          </div>
-          <p className="hero__notice">
-            Programme: 31 May – 11 June 2027 · Application deadline: 28 February 2026
-          </p>
-        </div>
-
-        <div className="hero__visual">
+      <figure className="hero__banner">
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${asset('/images/hero-sswp-1200.webp')} 1200w, ${asset('/images/hero-sswp-2400.webp')} 2400w`}
+            sizes="100vw"
+          />
           <img
-            src={asset('/images/hero-sswp.PNG')}
-            alt="Students at a chalkboard with the words Summer School for Women in Physics 2027"
-            width={521}
-            height={332}
+            src={asset('/images/hero-sswp-2400.jpg')}
+            alt="Five women students at a chalkboard reading Summer School for Women in Physics 2027, sketching physics diagrams and equations"
+            width={2400}
+            height={1333}
+            fetchPriority="high"
             decoding="async"
             className="hero__photo"
           />
+        </picture>
+      </figure>
+
+      <div className="container hero__copy">
+        <p className="eyebrow">{site.host}</p>
+        <p className="hero__intro">{site.intro}</p>
+
+        <div className="hero__actions">
+          <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary">
+            Apply for {site.shortName}
+          </OpenDialogButton>
+          <a href="#about" className="button button--ghost">
+            About the programme <Icon name="arrowDown" size={16} />
+          </a>
         </div>
+        <p className="hero__notice">
+          Programme: 31 May – 11 June 2027 · Application deadline: 28 February 2027
+        </p>
       </div>
 
       <dl className="container facts">

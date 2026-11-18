@@ -26,7 +26,18 @@ export function MobileNav() {
           <a
             key={link.href}
             href={link.href}
-            onClick={(event) => event.currentTarget.closest('dialog')?.close()}
+            onClick={(event) => {
+              // Close the menu first so the page-scroll lock is lifted, then scroll ourselves.
+              // Relying on the link's default jump while the dialog is closing gets the
+              // scroll cancelled or cut short on mobile browsers.
+              const target = document.querySelector(link.href);
+              if (!target) return;
+              event.preventDefault();
+              event.currentTarget.closest('dialog')?.close();
+              const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+              history.pushState(null, '', link.href);
+            }}
           >
             {link.label}
           </a>
