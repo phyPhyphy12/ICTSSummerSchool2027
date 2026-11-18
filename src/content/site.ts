@@ -58,7 +58,7 @@ export const eligibility = {
       heading: 'Selection process',
       statement:
         'Selection will be based on an online, MCQ-based test consisting of basic conceptual physics questions. We make every effort to ensure a wide representation across the country.',
-      note: 'Recommendation letters can be submitted until 16 March 2027.',
+      note: '',
     },
   ],
 } as const;
