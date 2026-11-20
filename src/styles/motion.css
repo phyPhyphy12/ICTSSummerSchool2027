@@ -310,9 +310,8 @@
     translate: 0.15rem 0.15rem;
   }
 
-  /* Lists: organisers and programme strands respond to hover. */
-  .people__item,
-  .pillars li {
+  /* Organisers list responds to hover. */
+  .people__item {
     transition: border-color 0.3s;
   }
 
@@ -323,8 +322,7 @@
       color 0.3s;
   }
 
-  .people__item:hover,
-  .pillars li:hover {
+  .people__item:hover {
     border-color: var(--amber);
   }
 
@@ -359,31 +357,6 @@
       animation-range: entry 60% cover 40%;
     }
 
-    /* Marquee rows slide in opposite directions as the band crosses the screen. */
-    @keyframes marquee-left {
-      to {
-        transform: translateX(-28vw);
-      }
-    }
-
-    @keyframes marquee-right {
-      to {
-        transform: translateX(28vw);
-      }
-    }
-
-    .marquee {
-      view-timeline: --marquee block;
-    }
-
-    .marquee__row {
-      animation: marquee-left linear both;
-      animation-timeline: --marquee;
-    }
-
-    .marquee__row--reverse {
-      animation-name: marquee-right;
-    }
   }
 
   @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {

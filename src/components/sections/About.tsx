@@ -12,14 +12,6 @@ export function About() {
               {paragraph}
             </p>
           ))}
-          <ul className="pillars">
-            {about.pillars.map((pillar, index) => (
-              <li key={pillar} className="reveal">
-                <span className="pillars__index">{String(index + 1).padStart(2, '0')}</span>
-                {pillar}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>

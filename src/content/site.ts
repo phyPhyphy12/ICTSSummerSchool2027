@@ -41,7 +41,6 @@ export const about = {
     'The Summer School for Women in Physics (SSWP) at ICTS-TIFR is designed to encourage women undergraduates to consider physics as a career and to experience the excitement and interconnectedness of physics through lectures, simple experiments or demonstrations, open-ended discussion, and problem-solving.',
     'By bringing together enthusiastic students and active physicists in a collaborative academic setting, the programme fosters deep conceptual understanding, scientific curiosity, and confidence in approaching foundational questions.',
   ],
-  pillars: ['Lectures', 'Experiments & demonstrations', 'Open-ended discussion', 'Problem-solving'],
 } as const;
 
 export const eligibility = {
