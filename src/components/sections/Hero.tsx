@@ -43,16 +43,15 @@ export function Hero() {
             About the programme <Icon name="arrowDown" size={16} />
           </a>
         </div>
-        <p className="hero__notice">
-          Programme: 31 May – 11 June 2027 · Application deadline: 28 February 2027
-        </p>
       </div>
 
       <dl className="container facts">
         {facts.map((fact) => (
-          <div key={fact.label} className="facts__item">
+          <div key={fact.label} className="card facts__item">
             <dt>{fact.label}</dt>
-            <dd>{fact.value}</dd>
+            {fact.lines.map((line) => (
+              <dd key={line}>{line}</dd>
+            ))}
           </div>
         ))}
       </dl>

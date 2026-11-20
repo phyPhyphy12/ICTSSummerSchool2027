@@ -24,14 +24,14 @@ export const navLinks = [
   { label: 'Eligibility', href: '#eligibility' },
   { label: 'Support', href: '#support' },
   { label: 'A typical day', href: '#typical-day' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Organisers', href: '#organisers' },
 ] as const;
 
+/** Key-date boxes under the hero buttons. Each line of `lines` is shown on its own row. */
 export const facts = [
-  { label: 'Duration', value: 'Two weeks' },
-  { label: 'For', value: 'Women undergraduates in physics' },
-  { label: 'Where', value: 'ICTS-TIFR, Bengaluru' },
-  { label: 'Dates', value: '31 May – 11 June 2027' },
+  { label: 'Duration & Dates', lines: ['Two weeks', '31 May – 11 June 2027'] },
+  { label: 'Application Deadline', lines: ['28 February 2027'] },
 ] as const;
 
 export const about = {
@@ -100,6 +100,31 @@ export const typicalDay = {
     note: 'Laptops are useful for analysis during experimental sessions and accessing shared scientific material.',
   },
 } as const;
+
+/**
+ * Photos and videos from earlier editions of SSWP, shown as a scrolling reel.
+ * Put files in public/images/gallery/ and list them here, e.g.
+ *   { type: 'image', src: '/images/gallery/sswp-2025-01.webp', alt: 'Participants at a tabletop experiment', caption: 'SSWP 2025' }
+ *   { type: 'video', src: '/images/gallery/sswp-2024.mp4', poster: '/images/gallery/sswp-2024.webp', alt: 'Lecture highlights', caption: 'SSWP 2024' }
+ * While the list is empty, the section shows placeholder cards.
+ */
+export type GalleryItem =
+  | { type: 'image'; src: string; alt: string; caption?: string }
+  | { type: 'video'; src: string; poster?: string; alt: string; caption?: string };
+
+export const gallery: {
+  eyebrow: string;
+  title: string;
+  lede: string;
+  placeholderYears: readonly string[];
+  items: readonly GalleryItem[];
+} = {
+  eyebrow: 'Previous editions',
+  title: 'Moments from past schools',
+  lede: 'A look at lectures, experiments and conversations from earlier Summer Schools for Women in Physics.',
+  placeholderYears: ['SSWP 2026', 'SSWP 2025', 'SSWP 2024', 'SSWP 2023'],
+  items: [],
+};
 
 export const organisers = {
   eyebrow: 'Organising committee',

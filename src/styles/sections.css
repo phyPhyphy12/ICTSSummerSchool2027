@@ -90,26 +90,20 @@
   gap: 0.75rem;
 }
 
-.hero__notice {
-  font-size: 0.9375rem;
-  color: var(--ink-soft);
-}
-
 .facts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: 0;
-  border-top: 1px solid var(--line-strong);
 }
 
-.facts__item {
-  padding: 1.25rem 1rem 1.25rem 0;
-  border-bottom: 1px solid var(--line);
+.facts__item.card {
+  gap: 0.35rem;
 }
 
 .facts dt {
-  font-size: 0.75rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -117,111 +111,16 @@
 }
 
 .facts dd {
-  margin: 0.35rem 0 0;
+  margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.125rem, 2vw, 1.375rem);
-  line-height: 1.25;
+  font-size: clamp(1.5rem, 3.2vw, 2.125rem);
+  line-height: 1.2;
+  color: var(--ink);
 }
 
-@media (min-width: 60rem) {
+@media (min-width: 48rem) {
   .facts {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .facts__item {
-    border-bottom: 0;
-  }
-
-  .facts__item + .facts__item {
-    padding-left: 1.5rem;
-    border-left: 1px solid var(--line);
-  }
-}
-
-/* Orbit: kept for any residual references; hero now uses a static photo. */
-.orbit {
-  position: relative;
-  width: min(100%, 30rem);
-  aspect-ratio: 1;
-  margin-inline: auto;
-  perspective: 1100px;
-  transform-style: preserve-3d;
-}
-
-.orbit__stage,
-.orbit__camera {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-}
-
-.orbit__camera {
-  transform: rotateX(58deg) rotateZ(-20deg);
-}
-
-.orbit__plane {
-  position: absolute;
-  transform-style: preserve-3d;
-}
-
-.orbit__plane:nth-child(1) {
-  inset: 0;
-}
-
-.orbit__plane:nth-child(2) {
-  inset: 9%;
-  transform: rotateY(62deg);
-}
-
-.orbit__plane:nth-child(3) {
-  inset: 18%;
-  transform: rotateX(38deg) rotateY(-34deg);
-}
-
-.orbit__plane:nth-child(4) {
-  inset: 27%;
-  transform: rotateY(-44deg) rotateX(-30deg);
-}
-
-.orbit__ring {
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid rgb(154 57 58 / 0.55);
-  border-radius: 50%;
-}
-
-.orbit__plane:nth-child(even) .orbit__ring {
-  border-color: rgb(239 127 26 / 0.7);
-}
-
-.orbit__body {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0.9rem;
-  height: 0.9rem;
-  margin: -0.45rem;
-  border-radius: 50%;
-  background: var(--amber);
-  box-shadow: 0 0 0 0.35rem rgb(239 127 26 / 0.2);
-}
-
-.orbit__plane:nth-child(even) .orbit__body {
-  background: var(--crimson);
-  box-shadow: 0 0 0 0.35rem rgb(154 57 58 / 0.18);
-}
-
-.orbit__core {
-  position: absolute;
-  inset: 41%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 34% 30%, #d98a72, var(--crimson) 52%, var(--crimson-deep));
-  box-shadow: 0 0 3.5rem rgb(154 57 58 / 0.35);
-}
-
-@media (max-width: 59.99rem) {
-  .orbit {
-    width: min(78%, 20rem);
+    grid-template-columns: 3fr 2fr;
   }
 }
 
@@ -428,13 +327,6 @@
   background: var(--amber);
 }
 
-.day__part:nth-child(2)::before {
-  background: var(--crimson);
-}
-
-.day__part:nth-child(3)::before {
-  background: var(--crimson-deep);
-}
 
 .day__part h3 {
   font-size: clamp(1.75rem, 3vw, 2.25rem);
@@ -464,6 +356,68 @@
   }
 }
 
+/* Gallery reel: a horizontal strip that snaps card by card. */
+.reel {
+  display: flex;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin: 0;
+  padding: 0.5rem max(var(--gutter), calc((100vw - 76rem) / 2)) 1.5rem;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(var(--gutter), calc((100vw - 76rem) / 2));
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.reel:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: -2px;
+}
+
+.reel__item.card {
+  flex: 0 0 min(82vw, 26rem);
+  padding: 0;
+  scroll-snap-align: start;
+}
+
+.reel__figure {
+  display: grid;
+  margin: 0;
+}
+
+.reel__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--paper-tint);
+}
+
+.reel__media--placeholder {
+  background:
+    radial-gradient(circle at 30% 35%, rgb(239 127 26 / 0.18), transparent 55%),
+    radial-gradient(circle at 75% 70%, rgb(154 57 58 / 0.16), transparent 55%),
+    var(--paper-tint);
+}
+
+.reel__caption {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 1rem 1.25rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.reel__caption span {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
 /* Campus photograph */
 .campus {
   padding: var(--section-space) var(--gutter) 0;
@@ -479,7 +433,7 @@
   position: relative;
   /* Explicit width: otherwise min-height + aspect-ratio widens the frame past a phone screen. */
   width: 100%;
-  aspect-ratio: 1121 / 440;
+  aspect-ratio: 2400 / 1100;
   min-height: 12rem;
   overflow: clip;
   border-radius: var(--radius-large);
@@ -489,9 +443,10 @@
 
 .campus__photo {
   position: absolute;
-  inset: 0;
+  /* A little taller than the frame so the scroll drift never shows an edge. */
+  inset: -5% 0;
   width: 100%;
-  height: 100%;
+  height: 110%;
   object-fit: cover;
   image-rendering: auto;
 }

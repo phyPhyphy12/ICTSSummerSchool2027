@@ -11,31 +11,6 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Time-based: the rings of the hero gyroscope turn slowly on their own. */
-  @keyframes orbit-spin {
-    to {
-      rotate: 360deg;
-    }
-  }
-
-  .orbit__ring {
-    animation: orbit-spin 26s linear infinite;
-  }
-
-  .orbit__plane:nth-child(2) .orbit__ring {
-    animation-duration: 19s;
-    animation-direction: reverse;
-  }
-
-  .orbit__plane:nth-child(3) .orbit__ring {
-    animation-duration: 14s;
-  }
-
-  .orbit__plane:nth-child(4) .orbit__ring {
-    animation-duration: 9s;
-    animation-direction: reverse;
-  }
-
   /* Dialogs ease in. */
   @keyframes modal-in {
     from {
@@ -80,35 +55,6 @@
       animation: progress-grow auto linear;
       animation-timeline: scroll(root);
     }
-  }
-
-  @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
-    /* The gyroscope turns in space and pulls toward the viewer over the first screen of scroll. */
-    @keyframes orbit-turn {
-      to {
-        rotate: 0 1 0 160deg;
-      }
-    }
-
-    @keyframes orbit-approach {
-      to {
-        scale: 1.45;
-        translate: 0 22vh;
-      }
-    }
-
-    .orbit__camera {
-      animation: orbit-turn linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 110vh;
-    }
-
-    .orbit__stage {
-      animation: orbit-approach linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 110vh;
-    }
-
   }
 
   /* Scroll-linked, tied to each element entering the viewport. */
@@ -191,19 +137,12 @@
 
 /* Page-load, hover and pointer effects. */
 @media (prefers-reduced-motion: no-preference) {
-  /* Hero: the copy, the facts and the orbit arrive in sequence when the page opens. */
+  /* Hero: the copy and the fact boxes arrive in sequence when the page opens. */
   @keyframes load-rise {
     from {
       opacity: 0;
       filter: blur(6px);
       transform: translateY(1.75rem);
-    }
-  }
-
-  @keyframes load-bloom {
-    from {
-      opacity: 0;
-      transform: scale(0.7) rotate(-25deg);
     }
   }
 
@@ -238,18 +177,6 @@
 
   .facts__item:nth-child(2) {
     animation-delay: 0.58s;
-  }
-
-  .facts__item:nth-child(3) {
-    animation-delay: 0.66s;
-  }
-
-  .facts__item:nth-child(4) {
-    animation-delay: 0.74s;
-  }
-
-  .orbit {
-    animation: load-bloom 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
   }
 
   /* Ambient washes drift slowly. */
@@ -289,58 +216,75 @@
     animation-duration: 11s;
   }
 
-  /* Cards: lift on hover, tilt toward the pointer, and carry a light that follows it
-     (the --tilt and --light properties are set by PointerEffects.tsx). */
-  .card-grid,
-  #support .container {
-    perspective: 1200px;
+  /* Cards stay still: a thin glowing line travels along the top edge from left to right,
+     staggered so the cards in a row don't move in step. On hover the border warms up and the
+     line brightens, without any lift or tilt, so the cards don't read as links. */
+  @keyframes card-glow-sweep {
+    0% {
+      translate: -100% 0;
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    42% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      translate: 260% 0;
+      opacity: 0;
+    }
   }
 
-  .card,
-  .support {
-    --tilt-x: 1;
-    --tilt-y: 0;
-    --tilt-angle: 0deg;
-    rotate: var(--tilt-x) var(--tilt-y) 0 var(--tilt-angle);
+  .card {
+    overflow: hidden;
     transition:
-      rotate 0.25s ease-out,
-      translate 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
-      box-shadow 0.35s,
-      border-color 0.35s;
-  }
-
-  .support {
-    rotate: var(--tilt-x) var(--tilt-y) 0 calc(var(--tilt-angle) * 0.3);
-    background:
-      radial-gradient(34rem circle at var(--light-x, 85%) var(--light-y, 0%), rgb(255 255 255 / 0.13), transparent 60%),
-      linear-gradient(135deg, var(--crimson-strong), var(--crimson-deep));
-  }
-
-  .card:hover {
-    translate: 0 -0.6rem;
-    border-color: var(--line-strong);
-    box-shadow:
-      0 2px 4px rgb(77 22 24 / 0.06),
-      0 34px 60px -24px rgb(77 22 24 / 0.38);
+      border-color 0.35s,
+      box-shadow 0.35s;
   }
 
   .card::after {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-      20rem circle at var(--light-x, 50%) var(--light-y, 0%),
-      rgb(239 127 26 / 0.16),
-      transparent 62%
-    );
-    opacity: 0;
-    transition: opacity 0.35s;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--amber), var(--crimson), transparent);
+    filter: drop-shadow(0 0 6px rgb(239 127 26 / 0.7));
+    translate: -100% 0;
+    animation: card-glow-sweep 6s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+    z-index: 1;
     pointer-events: none;
   }
 
+  .card-grid > .card:nth-child(2)::after,
+  .facts > .card:nth-child(2)::after {
+    animation-delay: 1s;
+  }
+
+  .card-grid > .card:nth-child(3)::after {
+    animation-delay: 2s;
+  }
+
+  .card:hover {
+    border-color: var(--amber);
+    box-shadow:
+      0 0 0 1px var(--amber),
+      0 1px 2px rgb(77 22 24 / 0.06),
+      0 18px 40px -18px rgb(239 127 26 / 0.45);
+  }
+
   .card:hover::after {
-    opacity: 1;
+    height: 3px;
+    animation-duration: 3s;
+  }
+
+  .support {
+    background:
+      radial-gradient(34rem circle at var(--light-x, 85%) var(--light-y, 0%), rgb(255 255 255 / 0.13), transparent 60%),
+      linear-gradient(135deg, var(--crimson-strong), var(--crimson-deep));
   }
 
   /* Buttons: a sheen crosses the primary button, and arrows nudge. */
