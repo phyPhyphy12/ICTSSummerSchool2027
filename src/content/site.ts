@@ -102,28 +102,58 @@ export const typicalDay = {
 } as const;
 
 /**
- * Photos and videos from earlier editions of SSWP, shown as a scrolling reel.
- * Put files in public/images/gallery/ and list them here, e.g.
- *   { type: 'image', src: '/images/gallery/sswp-2025-01.webp', alt: 'Participants at a tabletop experiment', caption: 'SSWP 2025' }
- *   { type: 'video', src: '/images/gallery/sswp-2024.mp4', poster: '/images/gallery/sswp-2024.webp', alt: 'Lecture highlights', caption: 'SSWP 2024' }
- * While the list is empty, the section shows placeholder cards.
+ * Photos and videos from earlier editions of SSWP, shown as a scrolling reel, one card per item.
+ * Put files in public/images/gallery/ and add them to the `items` of the right edition, e.g.
+ *   { type: 'image', src: '/images/gallery/sswp-2024-lab.jpg', width: 2400, height: 1600,
+ *     alt: 'Participants at a tabletop experiment', caption: 'In the lab' }
+ *   { type: 'video', src: '/images/gallery/sswp-2024.mp4', poster: '/images/gallery/sswp-2024.jpg',
+ *     alt: 'Lecture highlights', caption: 'Lecture highlights' }
+ * `webp` optionally lists smaller/lighter WebP versions as [path, pixel width].
+ * An edition with no items shows a single "Photos coming soon" card.
  */
 export type GalleryItem =
-  | { type: 'image'; src: string; alt: string; caption?: string }
+  | {
+      type: 'image';
+      src: string;
+      width: number;
+      height: number;
+      alt: string;
+      caption?: string;
+      webp?: readonly (readonly [string, number])[];
+    }
   | { type: 'video'; src: string; poster?: string; alt: string; caption?: string };
 
 export const gallery: {
   eyebrow: string;
   title: string;
   lede: string;
-  placeholderYears: readonly string[];
-  items: readonly GalleryItem[];
+  editions: readonly { name: string; items: readonly GalleryItem[] }[];
 } = {
   eyebrow: 'Previous editions',
   title: 'Moments from past schools',
   lede: 'A look at lectures, experiments and conversations from earlier Summer Schools for Women in Physics.',
-  placeholderYears: ['SSWP 2026', 'SSWP 2025', 'SSWP 2024', 'SSWP 2023'],
-  items: [],
+  editions: [
+    { name: 'SSWP 2026', items: [] },
+    {
+      name: 'SSWP 2025',
+      items: [
+        {
+          type: 'image',
+          src: '/images/gallery/sswp-2025-group-2400.jpg',
+          width: 2400,
+          height: 1350,
+          webp: [
+            ['/images/gallery/sswp-2025-group-1200.webp', 1200],
+            ['/images/gallery/sswp-2025-group-2400.webp', 2400],
+          ],
+          alt: 'Group photo of SSWP 2025: participants and faculty standing together on a lawn in front of a large framed opening onto a garden at ICTS',
+          caption: 'Group photo',
+        },
+      ],
+    },
+    { name: 'SSWP 2024', items: [] },
+    { name: 'SSWP 2023', items: [] },
+  ],
 };
 
 export const organisers = {
