@@ -30,7 +30,7 @@ export function Header() {
           </nav>
 
           <div className="site-header__actions">
-            <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary button--small">
+            <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary button--glow button--small">
               Apply
             </OpenDialogButton>
             <OpenDialogButton

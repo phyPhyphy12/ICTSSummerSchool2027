@@ -44,7 +44,7 @@ export function MobileNav() {
         ))}
       </nav>
 
-      <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary">
+      <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary button--glow">
         Apply for {site.shortName}
       </OpenDialogButton>
     </Dialog>

@@ -36,7 +36,7 @@ export function Hero() {
         <p className="hero__intro">{site.intro}</p>
 
         <div className="hero__actions">
-          <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary">
+          <OpenDialogButton target={APPLY_DIALOG_ID} className="button button--primary button--glow">
             Apply for {site.shortName}
           </OpenDialogButton>
           <a href="#about" className="button button--ghost">

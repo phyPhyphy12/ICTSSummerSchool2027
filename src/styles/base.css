@@ -156,6 +156,11 @@ address {
   color: #fff;
 }
 
+/* Apply buttons: a soft amber halo marks them out (animated in motion.css). */
+.button--glow {
+  box-shadow: 0 0 18px 2px rgb(239 127 26 / 0.4);
+}
+
 .button--ghost {
   border-color: var(--line-strong);
   color: var(--ink);

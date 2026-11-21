@@ -108,7 +108,7 @@ export const typicalDay = {
  *   { type: 'video', src: '/images/gallery/sswp-2024.mp4', poster: '/images/gallery/sswp-2024.jpg',
  *     alt: 'Lecture highlights', caption: 'Lecture highlights' }
  * `webp` optionally lists smaller/lighter WebP versions as [path, pixel width].
- * An edition with no items shows a single "Photos coming soon" card.
+ * Editions with no items are not shown.
  */
 export type GalleryItem =
   | {

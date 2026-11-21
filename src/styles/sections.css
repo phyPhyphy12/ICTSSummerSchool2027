@@ -356,13 +356,10 @@
 }
 
 .reel__item.card {
-  flex: 0 0 calc(var(--reel-h) * 4 / 3);
+  flex: 0 0 calc(var(--reel-h) * 16 / 9);
+  max-width: calc(100vw - 2 * var(--gutter));
   padding: 0;
   scroll-snap-align: start;
-}
-
-.reel__item--wide.card {
-  flex-basis: calc(var(--reel-h) * 16 / 9);
 }
 
 .reel__figure {
@@ -387,13 +384,6 @@
   object-fit: cover;
   border-radius: var(--radius) var(--radius) 0 0;
   background: var(--paper-tint);
-}
-
-.reel__media--placeholder {
-  background:
-    radial-gradient(circle at 30% 35%, rgb(239 127 26 / 0.18), transparent 55%),
-    radial-gradient(circle at 75% 70%, rgb(154 57 58 / 0.16), transparent 55%),
-    var(--paper-tint);
 }
 
 .reel__caption {
@@ -504,31 +494,6 @@
   .people {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-/* Closing call to action */
-.closing {
-  text-align: center;
-}
-
-.closing__inner {
-  display: grid;
-  gap: 1.5rem;
-  justify-items: center;
-}
-
-.closing h2 {
-  font-size: clamp(2.25rem, 6vw, 4.5rem);
-}
-
-.closing h2 em {
-  color: var(--crimson);
-}
-
-.closing__lede {
-  max-width: 36rem;
-  font-size: 1.125rem;
-  color: var(--ink-soft);
 }
 
 /* Ambient background: three soft washes of the brand colours behind the whole page */

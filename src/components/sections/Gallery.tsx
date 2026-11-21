@@ -60,29 +60,22 @@ export function Gallery() {
 
       <ul className="reel" aria-label="Photos and videos from past schools" tabIndex={0}>
         {gallery.editions.flatMap((edition) =>
-          edition.items.length > 0
-            ? edition.items.map((item) => (
-                <li key={item.src} className="card reel__item reel__item--wide">
-                  <figure className="reel__figure">
-                    <Media item={item} />
-                    <figcaption className="reel__caption">
-                      {edition.name}
-                      {item.caption ? <span>{item.caption}</span> : null}
-                    </figcaption>
-                  </figure>
-                </li>
-              ))
-            : [
-                <li key={edition.name} className="card reel__item">
-                  <div className="reel__figure">
-                    <div className="reel__media reel__media--placeholder" aria-hidden="true" />
-                    <p className="reel__caption">
-                      {edition.name}
-                      <span>Photos coming soon</span>
-                    </p>
-                  </div>
-                </li>,
-              ],
+          edition.items.map((item) => (
+            <li
+              key={item.src}
+              className="card reel__item"
+              // Card width follows the photo's shape at the shared height, so nothing is cropped.
+              style={item.type === 'image' ? { flexBasis: `calc(var(--reel-h) * ${item.width} / ${item.height})` } : undefined}
+            >
+              <figure className="reel__figure">
+                <Media item={item} />
+                <figcaption className="reel__caption">
+                  {edition.name}
+                  {item.caption ? <span>{item.caption}</span> : null}
+                </figcaption>
+              </figure>
+            </li>
+          )),
         )}
       </ul>
     </section>
